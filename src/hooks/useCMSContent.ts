@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
+import { cmsService, CMSContent } from '../services/cms';
 
 interface UseCMSContentOptions {
   fallbackLanguage?: string;
@@ -76,4 +77,45 @@ export const useCMSContent = (
   }, [slug, i18n.language, fallbackLanguage, t, fallbackTranslationKey]);
 
   return { content, title, isLoading, error };
+};
+
+export const useMultipleCMSContent = (
+  slugs: string[],
+  options: UseCMSContentOptions = {}
+) => {
+  const { i18n } = useTranslation();
+  const [contentMap, setContentMap] = useState<Map<string, CMSContent>>(new Map());
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  
+  const { fallbackLanguage = 'en' } = options;
+
+  useEffect(() => {
+    const fetchMultipleContent = async () => {
+      setIsLoading(true);
+      setError(null);
+      
+      try {
+        const content = await cmsService.getMultipleContent(
+          slugs, 
+          i18n.language, 
+          fallbackLanguage
+        );
+        setContentMap(content);
+      } catch (err) {
+        console.error('Error fetching multiple content:', err);
+        setError('Failed to load content');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    if (slugs.length > 0) {
+      fetchMultipleContent();
+    } else {
+      setIsLoading(false);
+    }
+  }, [slugs, i18n.language, fallbackLanguage]);
+
+  return { contentMap, isLoading, error };
 };
