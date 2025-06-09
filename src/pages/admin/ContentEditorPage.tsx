@@ -383,7 +383,7 @@ const ContentEditorPage: React.FC = () => {
               {isCreating && (
                 <>
                   <div>
-                    <label htmlFor="slug" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="slug\" className="block text-sm font-medium text-gray-700 mb-1">
                       Slug *
                     </label>
                     <input
