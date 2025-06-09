@@ -49,34 +49,31 @@ const ContactPage: React.FC = () => {
     setExpandedFaq(expandedFaq === index ? null : index);
   };
 
+  // FAQ items from Experience page
   const faqItems = [
     {
-      question: "How far in advance should I book my yacht racing experience?",
-      answer: "We recommend booking at least 2-3 days in advance, especially during peak season (June-September). However, same-day bookings may be available depending on weather conditions and capacity. For the best selection of dates and times, booking a week ahead is ideal."
+      question: t('experience.faq.experience.question'),
+      answer: t('experience.faq.experience.answer')
     },
     {
-      question: "What are your operating hours and response times?",
-      answer: "We're open daily from 8:00 AM to 7:00 PM during our season (March-October). Phone calls are answered immediately during business hours. Email responses are typically sent within 2-4 hours during business days, and within 24 hours on weekends."
+      question: t('experience.faq.bring.question'),
+      answer: t('experience.faq.bring.answer')
     },
     {
-      question: "What's the best way to contact you for urgent inquiries?",
-      answer: "For immediate assistance or same-day bookings, calling +39 345 678 9012 is your best option. For general inquiries, our contact form or email works perfectly. We also offer WhatsApp support for quick questions and real-time communication."
+      question: t('experience.faq.weather.question'),
+      answer: t('experience.faq.weather.answer')
     },
     {
-      question: "Do you offer group discounts or corporate packages?",
-      answer: "Yes! We offer special rates for groups of 6 or more people, and we have comprehensive corporate packages for team building events. Contact us directly for custom pricing, catering options, and exclusive charter arrangements."
+      question: t('experience.faq.people.question'),
+      answer: t('experience.faq.people.answer')
     },
     {
-      question: "What happens if weather conditions are poor on my booking day?",
-      answer: "Safety is our top priority. If conditions are unsafe for sailing, we'll contact you 24 hours before your experience to reschedule at no extra cost or provide a full refund. Light rain doesn't typically cancel our experiences - it's all part of the authentic sailing adventure!"
+      question: t('experience.faq.meals.question'),
+      answer: t('experience.faq.meals.answer')
     },
     {
-      question: "Can I modify or cancel my booking after confirmation?",
-      answer: "Absolutely! You can modify your booking up to 48 hours before your experience at no cost, subject to availability. Our flexible cancellation policy allows free cancellation up to 48 hours before departure. See our full cancellation policy for complete details."
-    },
-    {
-      question: "What languages do your staff speak?",
-      answer: "Our multilingual team speaks English, Italian, German, and Russian fluently. All safety briefings and sailing instruction are provided in your preferred language to ensure you have the best possible experience on Lake Garda."
+      question: t('experience.faq.camera.question'),
+      answer: t('experience.faq.camera.answer')
     }
   ];
 
@@ -325,11 +322,11 @@ const ContactPage: React.FC = () => {
             <div className="flex items-center justify-center mb-4">
               <HelpCircle className="h-8 w-8 text-primary-600 mr-3" />
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 font-serif">
-                Frequently Asked Questions
+                {t('contact.faq')}
               </h2>
             </div>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Quick answers to the most common questions about our yacht racing experiences
+              {t('experience.faq.stillQuestions')}
             </p>
           </div>
 
@@ -377,7 +374,7 @@ const ContactPage: React.FC = () => {
             {/* Still Have Questions CTA */}
             <div className="mt-12 bg-gradient-to-r from-primary-50 to-blue-50 rounded-2xl p-8 text-center">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Still have questions?
+                {t('experience.faq.stillQuestions')}
               </h3>
               <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
                 Can't find what you're looking for? Our friendly team is here to help with any questions about your yacht racing experience.
