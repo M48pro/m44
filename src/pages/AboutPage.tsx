@@ -3,45 +3,88 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Award, Users, Anchor, Heart, Star, Trophy, Shield, Camera, MapPin, Calendar, Target, Compass } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
+import { useMultipleCMSContent } from '../hooks/useCMSContent';
 
 const AboutPage: React.FC = () => {
   const { t } = useTranslation();
+
+  // Define all the content slugs we need for the About page
+  const contentSlugs = [
+    'about-story-description',
+    'about-beginning-description', 
+    'about-journey-description-1',
+    'about-journey-description-2',
+    'about-mission-description',
+    'about-vision-description',
+    'about-milestone-2009',
+    'about-milestone-2012',
+    'about-milestone-2015', 
+    'about-milestone-2018',
+    'about-milestone-2020',
+    'about-milestone-2024',
+    'about-values-safety-description',
+    'about-values-passion-description',
+    'about-values-inclusive-description',
+    'about-values-authentic-description',
+    'about-values-innovation-description',
+    'about-team-marco-description',
+    'about-team-sofia-description',
+    'about-team-andreas-description',
+    'about-team-elena-description',
+    'about-differentiators-authentic-description',
+    'about-differentiators-professional-description',
+    'about-differentiators-complete-description',
+    'about-differentiators-location-description',
+    'about-differentiators-multilingual-description',
+    'about-differentiators-flexible-description'
+  ];
+
+  const { content, loading, error, getContentBySlug } = useMultipleCMSContent(contentSlugs);
+
+  // Helper function to get content or fallback to translation key
+  const getContent = (slug: string, fallbackKey?: string): string => {
+    const cmsContent = getContentBySlug(slug);
+    if (cmsContent) {
+      return cmsContent.content;
+    }
+    return fallbackKey ? t(fallbackKey) : '';
+  };
 
   const milestones = [
     { 
       year: '2009', 
       title: t('about.theBeginning'), 
-      description: t('about.milestone2009'),
+      description: getContent('about-milestone-2009', 'about.milestone2009'),
       icon: Anchor
     },
     { 
       year: '2012', 
       title: t('about.milestone2012Title'), 
-      description: t('about.milestone2012'),
+      description: getContent('about-milestone-2012', 'about.milestone2012'),
       icon: Users
     },
     { 
       year: '2015', 
       title: t('about.milestone2015Title'), 
-      description: t('about.milestone2015'),
+      description: getContent('about-milestone-2015', 'about.milestone2015'),
       icon: Award
     },
     { 
       year: '2018', 
       title: t('about.milestone2018Title'), 
-      description: t('about.milestone2018'),
+      description: getContent('about-milestone-2018', 'about.milestone2018'),
       icon: Trophy
     },
     { 
       year: '2020', 
       title: t('about.milestone2020Title'), 
-      description: t('about.milestone2020'),
+      description: getContent('about-milestone-2020', 'about.milestone2020'),
       icon: Target
     },
     { 
       year: '2024', 
       title: t('about.milestone2024Title'), 
-      description: t('about.milestone2024'),
+      description: getContent('about-milestone-2024', 'about.milestone2024'),
       icon: Star
     }
   ];
@@ -51,7 +94,7 @@ const AboutPage: React.FC = () => {
       name: 'Marco Benedetti',
       role: t('about.team.marco.role'),
       image: 'https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      description: t('about.team.marco.description'),
+      description: getContent('about-team-marco-description', 'about.team.marco.description'),
       specialties: [
         t('about.team.marco.specialties.strategy'),
         t('about.team.marco.specialties.safety'),
@@ -62,7 +105,7 @@ const AboutPage: React.FC = () => {
       name: 'Sofia Rossi',
       role: t('about.team.sofia.role'),
       image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      description: t('about.team.sofia.description'),
+      description: getContent('about-team-sofia-description', 'about.team.sofia.description'),
       specialties: [
         t('about.team.sofia.specialties.relations'),
         t('about.team.sofia.specialties.quality'),
@@ -73,7 +116,7 @@ const AboutPage: React.FC = () => {
       name: 'Andreas Mueller',
       role: t('about.team.andreas.role'),
       image: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      description: t('about.team.andreas.description'),
+      description: getContent('about-team-andreas-description', 'about.team.andreas.description'),
       specialties: [
         t('about.team.andreas.specialties.techniques'),
         t('about.team.andreas.specialties.training'),
@@ -84,7 +127,7 @@ const AboutPage: React.FC = () => {
       name: 'Elena Bianchi',
       role: t('about.team.elena.role'),
       image: 'https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      description: t('about.team.elena.description'),
+      description: getContent('about-team-elena-description', 'about.team.elena.description'),
       specialties: [
         t('about.team.elena.specialties.protocols'),
         t('about.team.elena.specialties.response'),
@@ -97,31 +140,31 @@ const AboutPage: React.FC = () => {
     {
       icon: Shield,
       title: t('about.values.safety.title'),
-      description: t('about.values.safety.description'),
+      description: getContent('about-values-safety-description', 'about.values.safety.description'),
       color: 'bg-green-50 text-green-600'
     },
     {
       icon: Heart,
       title: t('about.values.passion.title'),
-      description: t('about.values.passion.description'),
+      description: getContent('about-values-passion-description', 'about.values.passion.description'),
       color: 'bg-red-50 text-red-600'
     },
     {
       icon: Users,
       title: t('about.values.inclusive.title'),
-      description: t('about.values.inclusive.description'),
+      description: getContent('about-values-inclusive-description', 'about.values.inclusive.description'),
       color: 'bg-blue-50 text-blue-600'
     },
     {
       icon: Trophy,
       title: t('about.values.authentic.title'),
-      description: t('about.values.authentic.description'),
+      description: getContent('about-values-authentic-description', 'about.values.authentic.description'),
       color: 'bg-yellow-50 text-yellow-600'
     },
     {
       icon: Target,
       title: t('about.values.innovation.title'),
-      description: t('about.values.innovation.description'),
+      description: getContent('about-values-innovation-description', 'about.values.innovation.description'),
       color: 'bg-purple-50 text-purple-600'
     }
   ];
@@ -168,35 +211,62 @@ const AboutPage: React.FC = () => {
   const differentiators = [
     {
       title: t('about.differentiators.authentic.title'),
-      description: t('about.differentiators.authentic.description'),
+      description: getContent('about-differentiators-authentic-description', 'about.differentiators.authentic.description'),
       icon: Trophy
     },
     {
       title: t('about.differentiators.professional.title'),
-      description: t('about.differentiators.professional.description'),
+      description: getContent('about-differentiators-professional-description', 'about.differentiators.professional.description'),
       icon: Award
     },
     {
       title: t('about.differentiators.complete.title'),
-      description: t('about.differentiators.complete.description'),
+      description: getContent('about-differentiators-complete-description', 'about.differentiators.complete.description'),
       icon: Star
     },
     {
       title: t('about.differentiators.location.title'),
-      description: t('about.differentiators.location.description'),
+      description: getContent('about-differentiators-location-description', 'about.differentiators.location.description'),
       icon: MapPin
     },
     {
       title: t('about.differentiators.multilingual.title'),
-      description: t('about.differentiators.multilingual.description'),
+      description: getContent('about-differentiators-multilingual-description', 'about.differentiators.multilingual.description'),
       icon: Users
     },
     {
       title: t('about.differentiators.flexible.title'),
-      description: t('about.differentiators.flexible.description'),
+      description: getContent('about-differentiators-flexible-description', 'about.differentiators.flexible.description'),
       icon: Calendar
     }
   ];
+
+  if (loading) {
+    return (
+      <div className="pt-20 min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-primary-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">{t('common.loading')}</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="pt-20 min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-red-600 mb-4">{t('common.error')}: {error}</p>
+          <button 
+            onClick={() => window.location.reload()} 
+            className="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700"
+          >
+            {t('common.reset')}
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
@@ -298,14 +368,14 @@ const AboutPage: React.FC = () => {
                 <div className="border-l-4 border-primary-600 pl-6">
                   <h3 className="text-2xl font-semibold text-gray-900 mb-3">{t('about.mission')}</h3>
                   <p className="text-gray-700 leading-relaxed">
-                    {t('about.missionDescription')}
+                    {getContent('about-mission-description', 'about.missionDescription')}
                   </p>
                 </div>
                 
                 <div className="border-l-4 border-gold-500 pl-6">
                   <h3 className="text-2xl font-semibold text-gray-900 mb-3">{t('about.vision')}</h3>
                   <p className="text-gray-700 leading-relaxed">
-                    {t('about.visionDescription')}
+                    {getContent('about-vision-description', 'about.visionDescription')}
                   </p>
                 </div>
               </div>
@@ -328,7 +398,7 @@ const AboutPage: React.FC = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6 font-serif">{t('about.ourStory')}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              {t('about.storyDescription')}
+              {getContent('about-story-description', 'about.storyDescription')}
             </p>
           </div>
 
@@ -336,9 +406,9 @@ const AboutPage: React.FC = () => {
             <div>
               <h3 className="text-3xl font-bold text-gray-900 mb-6">{t('about.theBeginning')}</h3>
               <div className="space-y-4 text-gray-700 leading-relaxed">
-                <p>{t('about.beginningDescription')}</p>
-                <p>{t('about.journeyDescription1')}</p>
-                <p>{t('about.journeyDescription2')}</p>
+                <p>{getContent('about-beginning-description', 'about.beginningDescription')}</p>
+                <p>{getContent('about-journey-description-1', 'about.journeyDescription1')}</p>
+                <p>{getContent('about-journey-description-2', 'about.journeyDescription2')}</p>
               </div>
             </div>
             <div className="relative">
