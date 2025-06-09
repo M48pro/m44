@@ -460,17 +460,35 @@
     "getInTouch": "Get in Touch",
     "visitUs": "Visit Us",
     "callUs": "Call Us",
+    "speakDirectly": "Speak directly with our team",
     "emailUs": "Email Us",
     "operatingHours": "Operating Hours",
     "quickActions": "Quick Actions",
     "callForBooking": "Call for Immediate Booking",
-    "speakDirectly": "Speak directly with our team",
     "whatsappChat": "WhatsApp Chat",
     "quickQuestions": "Quick questions and support",
     "findUs": "Find Us",
     "locatedIn": "Located in the heart of Riva del Garda",
     "faq": "Frequently Asked Questions",
-    "faqSubtitle": "Quick answers to common questions"
+    "faqSubtitle": "Quick answers to common questions",
+    "faqItems": {
+      "bookingAdvance": {
+        "question": "How far in advance should I book?",
+        "answer": "We recommend booking at least 2-3 days in advance, especially during peak season (June-September). Same-day bookings may be available depending on weather and capacity."
+      },
+      "cancellation": {
+        "question": "What if I need to cancel?",
+        "answer": "Free cancellation up to 48 hours before your experience. See our cancellation policy for full details."
+      },
+      "groupDiscounts": {
+        "question": "Do you offer group discounts?",
+        "answer": "Yes! We offer special rates for groups of 6 or more people. Contact us directly for custom pricing and corporate event packages."
+      },
+      "languages": {
+        "question": "What languages do you speak?",
+        "answer": "Our team speaks English, German, Italian, and Russian. All safety briefings and instructions are provided in your preferred language."
+      }
+    }
   },
   "chat": {
     "welcome": "Welcome to Garda Racing Yacht Club! 🛥️ How can I help you today? Ask me about our yacht racing experiences, pricing, or booking information.",
@@ -480,7 +498,10 @@
     "call": "Call",
     "email": "Email",
     "typePlaceholder": "Type your message...",
-    "support": "Garda Racing Support"
+    "support": "Garda Racing Support",
+    "openChat": "Open chat support",
+    "sendMessage": "Send message",
+    "errorMessage": "Sorry, I'm having trouble responding right now. Please call us at +39 345 678 9012 for immediate assistance."
   },
   "errors": {
     "pageNotFound": "Page Not Found",
