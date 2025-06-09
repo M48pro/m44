@@ -154,11 +154,123 @@
     "ourStory": "Nuestra Historia",
     "theBeginning": "El Comienzo",
     "ourJourney": "Nuestro Viaje",
+    "journeySubtitle": "Hitos clave en nuestra historia de 15 años de excelencia en navegación",
     "ourValues": "Nuestros Valores",
+    "valuesSubtitle": "Los principios que guían todo lo que hacemos",
     "meetTeam": "Conoce a Nuestro Equipo",
+    "teamSubtitle": "Los profesionales apasionados detrás de tu experiencia de navegación",
     "certifications": "Certificaciones y Reconocimientos",
+    "certificationsSubtitle": "Nuestro compromiso con la excelencia es reconocido por organizaciones líderes",
     "readyToJoin": "¿Listo para Unirte a Nuestra Historia?",
-    "joinCommunity": "Conviértete en parte de nuestra comunidad de vela y crea tus propios recuerdos inolvidables en el Lago de Garda."
+    "joinCommunity": "Conviértete en parte de nuestra comunidad de vela y crea tus propios recuerdos inolvidables en el Lago de Garda.",
+    "missionVision": "Nuestra Misión y Visión",
+    "mission": "Misión",
+    "vision": "Visión",
+    "milestone2012Title": "Primeros 1000 Invitados",
+    "milestone2015Title": "Certificación RYA",
+    "milestone2018Title": "Expansión de la Flota",
+    "milestone2020Title": "Innovación Digital",
+    "milestone2024Title": "2000+ Navegantes Felices",
+    "values": {
+      "safety": {
+        "title": "Seguridad Primero"
+      },
+      "passion": {
+        "title": "Pasión por la Vela"
+      },
+      "inclusive": {
+        "title": "Excelencia Inclusiva"
+      },
+      "authentic": {
+        "title": "Regatas Auténticas"
+      },
+      "innovation": {
+        "title": "Innovación Continua"
+      }
+    },
+    "team": {
+      "marco": {
+        "role": "Fundador y Patrón Principal",
+        "specialties": {
+          "strategy": "Estrategia de Regata",
+          "safety": "Gestión de Seguridad",
+          "experience": "Experiencia del Invitado"
+        }
+      },
+      "sofia": {
+        "role": "Gerente de Operaciones",
+        "specialties": {
+          "relations": "Relaciones con Invitados",
+          "quality": "Garantía de Calidad",
+          "coordination": "Coordinación de Equipo"
+        }
+      },
+      "andreas": {
+        "role": "Patrón Senior",
+        "specialties": {
+          "techniques": "Técnicas Avanzadas",
+          "training": "Entrenamiento Competitivo",
+          "weather": "Análisis Meteorológico"
+        }
+      },
+      "elena": {
+        "role": "Oficial de Seguridad e Instructora",
+        "specialties": {
+          "protocols": "Protocolos de Seguridad",
+          "response": "Respuesta de Emergencia",
+          "equipment": "Gestión de Equipamiento"
+        }
+      }
+    },
+    "achievements": {
+      "ryaCertified": {
+        "title": "Excelencia Certificada RYA",
+        "description": "Certificación de la Royal Yachting Association para instrucción profesional de vela"
+      },
+      "guestRating": {
+        "title": "Calificación de Invitados 4.9★",
+        "description": "Calificaciones consistentemente altas en todas las plataformas de reseñas"
+      },
+      "safetyRecord": {
+        "title": "Cero Incidentes de Seguridad",
+        "description": "15 años de operaciones con un historial de seguridad perfecto"
+      },
+      "satisfiedGuests": {
+        "title": "2000+ Invitados Satisfechos",
+        "description": "Recibimos navegantes de más de 30 países en todo el mundo"
+      },
+      "industryRecognition": {
+        "title": "Reconocimiento de la Industria",
+        "description": "Destacados en publicaciones líderes de vela y viajes"
+      },
+      "mediaExcellence": {
+        "title": "Excelencia en Medios",
+        "description": "Servicios profesionales de fotografía y videografía incluidos"
+      },
+      "ongoing": "En curso"
+    },
+    "whatSetsUsApart": "Lo Que Nos Distingue",
+    "whyChooseUs": "Por qué miles de navegantes eligen Garda Racing para su experiencia en el Lago de Garda",
+    "differentiators": {
+      "authentic": {
+        "title": "Experiencia de Regata Auténtica"
+      },
+      "professional": {
+        "title": "Instrucción Profesional"
+      },
+      "complete": {
+        "title": "Paquete de Experiencia Completo"
+      },
+      "location": {
+        "title": "Ubicación Perfecta"
+      },
+      "multilingual": {
+        "title": "Equipo Multilingüe"
+      },
+      "flexible": {
+        "title": "Flexible y Confiable"
+      }
+    }
   },
   "contact": {
     "title": "Contáctanos",

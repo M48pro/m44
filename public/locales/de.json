@@ -154,11 +154,123 @@
     "ourStory": "Unsere Geschichte",
     "theBeginning": "Der Anfang",
     "ourJourney": "Unsere Reise",
+    "journeySubtitle": "Wichtige Meilensteine in unserer 15-jährigen Geschichte der Segelexzellenz",
     "ourValues": "Unsere Werte",
+    "valuesSubtitle": "Die Prinzipien, die alles leiten, was wir tun",
     "meetTeam": "Lernen Sie Unser Team Kennen",
+    "teamSubtitle": "Die leidenschaftlichen Profis hinter Ihrem Segelerlebnis",
     "certifications": "Zertifizierungen & Auszeichnungen",
+    "certificationsSubtitle": "Unser Engagement für Exzellenz wird von führenden Organisationen anerkannt",
     "readyToJoin": "Bereit, Teil Unserer Geschichte zu Werden?",
-    "joinCommunity": "Werden Sie Teil unserer Segelgemeinschaft und schaffen Sie Ihre eigenen unvergesslichen Erinnerungen auf dem Gardasee."
+    "joinCommunity": "Werden Sie Teil unserer Segelgemeinschaft und schaffen Sie Ihre eigenen unvergesslichen Erinnerungen auf dem Gardasee.",
+    "missionVision": "Unsere Mission & Vision",
+    "mission": "Mission",
+    "vision": "Vision",
+    "milestone2012Title": "Erste 1000 Gäste",
+    "milestone2015Title": "RYA-Zertifizierung",
+    "milestone2018Title": "Flottenerweiterung",
+    "milestone2020Title": "Digitale Innovation",
+    "milestone2024Title": "2000+ Glückliche Segler",
+    "values": {
+      "safety": {
+        "title": "Sicherheit Zuerst"
+      },
+      "passion": {
+        "title": "Leidenschaft für das Segeln"
+      },
+      "inclusive": {
+        "title": "Inklusive Exzellenz"
+      },
+      "authentic": {
+        "title": "Authentische Rennen"
+      },
+      "innovation": {
+        "title": "Kontinuierliche Innovation"
+      }
+    },
+    "team": {
+      "marco": {
+        "role": "Gründer & Hauptskipper",
+        "specialties": {
+          "strategy": "Rennstrategie",
+          "safety": "Sicherheitsmanagement",
+          "experience": "Gästeerlebnis"
+        }
+      },
+      "sofia": {
+        "role": "Betriebsleiterin",
+        "specialties": {
+          "relations": "Gästebeziehungen",
+          "quality": "Qualitätssicherung",
+          "coordination": "Teamkoordination"
+        }
+      },
+      "andreas": {
+        "role": "Senior Skipper",
+        "specialties": {
+          "techniques": "Fortgeschrittene Techniken",
+          "training": "Wettkampftraining",
+          "weather": "Wetteranalyse"
+        }
+      },
+      "elena": {
+        "role": "Sicherheitsbeauftragte & Ausbilderin",
+        "specialties": {
+          "protocols": "Sicherheitsprotokolle",
+          "response": "Notfallreaktion",
+          "equipment": "Ausrüstungsmanagement"
+        }
+      }
+    },
+    "achievements": {
+      "ryaCertified": {
+        "title": "RYA-Zertifizierte Exzellenz",
+        "description": "Royal Yachting Association Zertifizierung für professionelle Segelausbildung"
+      },
+      "guestRating": {
+        "title": "4.9★ Gästebewertung",
+        "description": "Konstant hohe Bewertungen auf allen Bewertungsplattformen"
+      },
+      "safetyRecord": {
+        "title": "Null Sicherheitsvorfälle",
+        "description": "15 Jahre Betrieb mit perfekter Sicherheitsbilanz"
+      },
+      "satisfiedGuests": {
+        "title": "2000+ Zufriedene Gäste",
+        "description": "Segler aus über 30 Ländern weltweit begrüßt"
+      },
+      "industryRecognition": {
+        "title": "Branchenanerkennung",
+        "description": "Vorgestellt in führenden Segel- und Reisepublikationen"
+      },
+      "mediaExcellence": {
+        "title": "Medienexzellenz",
+        "description": "Professionelle Fotografie- und Videografie-Services inklusive"
+      },
+      "ongoing": "Laufend"
+    },
+    "whatSetsUsApart": "Was Uns Auszeichnet",
+    "whyChooseUs": "Warum Tausende von Seglern Garda Racing für ihr Gardasee-Erlebnis wählen",
+    "differentiators": {
+      "authentic": {
+        "title": "Authentisches Rennerlebnis"
+      },
+      "professional": {
+        "title": "Professionelle Ausbildung"
+      },
+      "complete": {
+        "title": "Komplettes Erlebnispaket"
+      },
+      "location": {
+        "title": "Perfekte Lage"
+      },
+      "multilingual": {
+        "title": "Mehrsprachiges Team"
+      },
+      "flexible": {
+        "title": "Flexibel & Zuverlässig"
+      }
+    }
   },
   "contact": {
     "title": "Kontaktieren Sie Uns",

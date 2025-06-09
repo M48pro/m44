@@ -154,11 +154,123 @@
     "ourStory": "La Nostra Storia",
     "theBeginning": "L'Inizio",
     "ourJourney": "Il Nostro Viaggio",
+    "journeySubtitle": "Tappe fondamentali nella nostra storia di 15 anni di eccellenza velica",
     "ourValues": "I Nostri Valori",
+    "valuesSubtitle": "I principi che guidano tutto ciò che facciamo",
     "meetTeam": "Incontra il Nostro Team",
+    "teamSubtitle": "I professionisti appassionati dietro la tua esperienza velica",
     "certifications": "Certificazioni e Riconoscimenti",
+    "certificationsSubtitle": "Il nostro impegno per l'eccellenza è riconosciuto dalle organizzazioni leader",
     "readyToJoin": "Pronto a Unirti alla Nostra Storia?",
-    "joinCommunity": "Diventa parte della nostra comunità velica e crea i tuoi ricordi indimenticabili sul Lago di Garda."
+    "joinCommunity": "Diventa parte della nostra comunità velica e crea i tuoi ricordi indimenticabili sul Lago di Garda.",
+    "missionVision": "La Nostra Missione e Visione",
+    "mission": "Missione",
+    "vision": "Visione",
+    "milestone2012Title": "Primi 1000 Ospiti",
+    "milestone2015Title": "Certificazione RYA",
+    "milestone2018Title": "Espansione della Flotta",
+    "milestone2020Title": "Innovazione Digitale",
+    "milestone2024Title": "2000+ Velisti Felici",
+    "values": {
+      "safety": {
+        "title": "Sicurezza Prima di Tutto"
+      },
+      "passion": {
+        "title": "Passione per la Vela"
+      },
+      "inclusive": {
+        "title": "Eccellenza Inclusiva"
+      },
+      "authentic": {
+        "title": "Regate Autentiche"
+      },
+      "innovation": {
+        "title": "Innovazione Continua"
+      }
+    },
+    "team": {
+      "marco": {
+        "role": "Fondatore e Skipper Capo",
+        "specialties": {
+          "strategy": "Strategia di Regata",
+          "safety": "Gestione della Sicurezza",
+          "experience": "Esperienza degli Ospiti"
+        }
+      },
+      "sofia": {
+        "role": "Direttore Operazioni",
+        "specialties": {
+          "relations": "Relazioni con gli Ospiti",
+          "quality": "Garanzia di Qualità",
+          "coordination": "Coordinamento del Team"
+        }
+      },
+      "andreas": {
+        "role": "Skipper Senior",
+        "specialties": {
+          "techniques": "Tecniche Avanzate",
+          "training": "Allenamento Competitivo",
+          "weather": "Analisi Meteorologica"
+        }
+      },
+      "elena": {
+        "role": "Ufficiale di Sicurezza e Istruttore",
+        "specialties": {
+          "protocols": "Protocolli di Sicurezza",
+          "response": "Risposta di Emergenza",
+          "equipment": "Gestione Attrezzature"
+        }
+      }
+    },
+    "achievements": {
+      "ryaCertified": {
+        "title": "Eccellenza Certificata RYA",
+        "description": "Certificazione della Royal Yachting Association per l'istruzione velica professionale"
+      },
+      "guestRating": {
+        "title": "Valutazione Ospiti 4.9★",
+        "description": "Valutazioni costantemente elevate su tutte le piattaforme di recensioni"
+      },
+      "safetyRecord": {
+        "title": "Zero Incidenti di Sicurezza",
+        "description": "15 anni di operazioni con record di sicurezza perfetto"
+      },
+      "satisfiedGuests": {
+        "title": "2000+ Ospiti Soddisfatti",
+        "description": "Accolti velisti da oltre 30 paesi in tutto il mondo"
+      },
+      "industryRecognition": {
+        "title": "Riconoscimento del Settore",
+        "description": "Presenti nelle principali pubblicazioni veliche e di viaggio"
+      },
+      "mediaExcellence": {
+        "title": "Eccellenza Mediatica",
+        "description": "Servizi di fotografia e videografia professionale inclusi"
+      },
+      "ongoing": "In corso"
+    },
+    "whatSetsUsApart": "Cosa Ci Distingue",
+    "whyChooseUs": "Perché migliaia di velisti scelgono Garda Racing per la loro esperienza sul Lago di Garda",
+    "differentiators": {
+      "authentic": {
+        "title": "Esperienza di Regata Autentica"
+      },
+      "professional": {
+        "title": "Istruzione Professionale"
+      },
+      "complete": {
+        "title": "Pacchetto Esperienza Completo"
+      },
+      "location": {
+        "title": "Posizione Perfetta"
+      },
+      "multilingual": {
+        "title": "Team Multilingue"
+      },
+      "flexible": {
+        "title": "Flessibile e Affidabile"
+      }
+    }
   },
   "contact": {
     "title": "Contattaci",

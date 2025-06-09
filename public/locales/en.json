@@ -301,15 +301,123 @@
     "ourStory": "Our Story",
     "theBeginning": "The Beginning",
     "ourJourney": "Our Journey",
+    "journeySubtitle": "Key milestones in our 15-year history of sailing excellence",
     "ourValues": "Our Values",
+    "valuesSubtitle": "The principles that guide everything we do",
     "meetTeam": "Meet Our Team",
+    "teamSubtitle": "The passionate professionals behind your sailing experience",
     "certifications": "Certifications & Recognition",
+    "certificationsSubtitle": "Our commitment to excellence is recognized by leading organizations",
     "readyToJoin": "Ready to Join Our Story?",
     "joinCommunity": "Become part of our sailing community and create your own unforgettable memories on Lake Garda.",
-    "storyDescription": "What started as a passion project by a group of sailing enthusiasts has grown into Lake Garda's premier yacht racing experience provider. Our journey began in 2009 when founder Marco Benedetti decided to share his love for competitive sailing with visitors from around the world.",
-    "beginningDescription": "Lake Garda has always been a sailor's paradise, with its consistent winds and stunning Alpine backdrop. Marco, a lifelong sailor and former competitive racer, recognized that many visitors to the lake wanted to experience authentic yacht racing but lacked the opportunity.",
-    "journeyDescription1": "Starting with a single yacht and a dream, Marco began offering personalized sailing experiences that combined professional instruction with the thrill of competitive racing. Word spread quickly about these unique adventures that allowed complete beginners to experience the excitement of yacht racing.",
-    "journeyDescription2": "Today, we operate a fleet of modern racing yachts and have welcomed over 2,000 guests from more than 30 countries, each leaving with unforgettable memories and a newfound appreciation for the sport of sailing."
+    "missionVision": "Our Mission & Vision",
+    "mission": "Mission",
+    "vision": "Vision",
+    "milestone2012Title": "First 1000 Guests",
+    "milestone2015Title": "RYA Certification",
+    "milestone2018Title": "Fleet Expansion",
+    "milestone2020Title": "Digital Innovation",
+    "milestone2024Title": "2000+ Happy Sailors",
+    "values": {
+      "safety": {
+        "title": "Safety First"
+      },
+      "passion": {
+        "title": "Passion for Sailing"
+      },
+      "inclusive": {
+        "title": "Inclusive Excellence"
+      },
+      "authentic": {
+        "title": "Authentic Racing"
+      },
+      "innovation": {
+        "title": "Continuous Innovation"
+      }
+    },
+    "team": {
+      "marco": {
+        "role": "Founder & Head Skipper",
+        "specialties": {
+          "strategy": "Racing Strategy",
+          "safety": "Safety Management",
+          "experience": "Guest Experience"
+        }
+      },
+      "sofia": {
+        "role": "Operations Manager",
+        "specialties": {
+          "relations": "Guest Relations",
+          "quality": "Quality Assurance",
+          "coordination": "Team Coordination"
+        }
+      },
+      "andreas": {
+        "role": "Senior Skipper",
+        "specialties": {
+          "techniques": "Advanced Techniques",
+          "training": "Competition Training",
+          "weather": "Weather Analysis"
+        }
+      },
+      "elena": {
+        "role": "Safety Officer & Instructor",
+        "specialties": {
+          "protocols": "Safety Protocols",
+          "response": "Emergency Response",
+          "equipment": "Equipment Management"
+        }
+      }
+    },
+    "achievements": {
+      "ryaCertified": {
+        "title": "RYA Certified Excellence",
+        "description": "Royal Yachting Association certification for professional sailing instruction"
+      },
+      "guestRating": {
+        "title": "4.9★ Guest Rating",
+        "description": "Consistently high ratings across all review platforms"
+      },
+      "safetyRecord": {
+        "title": "Zero Safety Incidents",
+        "description": "15 years of operations with perfect safety record"
+      },
+      "satisfiedGuests": {
+        "title": "2000+ Satisfied Guests",
+        "description": "Welcomed sailors from over 30 countries worldwide"
+      },
+      "industryRecognition": {
+        "title": "Industry Recognition",
+        "description": "Featured in leading sailing and travel publications"
+      },
+      "mediaExcellence": {
+        "title": "Media Excellence",
+        "description": "Professional photography and videography services included"
+      },
+      "ongoing": "Ongoing"
+    },
+    "whatSetsUsApart": "What Sets Us Apart",
+    "whyChooseUs": "Why thousands of sailors choose Garda Racing for their Lake Garda experience",
+    "differentiators": {
+      "authentic": {
+        "title": "Authentic Racing Experience"
+      },
+      "professional": {
+        "title": "Professional Instruction"
+      },
+      "complete": {
+        "title": "Complete Experience Package"
+      },
+      "location": {
+        "title": "Perfect Location"
+      },
+      "multilingual": {
+        "title": "Multilingual Team"
+      },
+      "flexible": {
+        "title": "Flexible & Reliable"
+      }
+    }
   },
   "contact": {
     "title": "Contact Us",
@@ -325,11 +433,11 @@
     "getInTouch": "Get in Touch",
     "visitUs": "Visit Us",
     "callUs": "Call Us",
+    "speakDirectly": "Speak directly with our team",
     "emailUs": "Email Us",
     "operatingHours": "Operating Hours",
     "quickActions": "Quick Actions",
     "callForBooking": "Call for Immediate Booking",
-    "speakDirectly": "Speak directly with our team",
     "whatsappChat": "WhatsApp Chat",
     "quickQuestions": "Quick questions and support",
     "findUs": "Find Us",
@@ -363,7 +471,10 @@
     "call": "Call",
     "email": "Email",
     "typePlaceholder": "Type your message...",
-    "support": "Garda Racing Support"
+    "support": "Garda Racing Support",
+    "openChat": "Open chat support",
+    "sendMessage": "Send message",
+    "errorMessage": "Sorry, I'm having trouble responding right now. Please call us at +39 345 678 9012 for immediate assistance."
   },
   "errors": {
     "pageNotFound": "Page Not Found",
