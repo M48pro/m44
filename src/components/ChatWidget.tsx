@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { MessageCircle, X, Send, User, Bot, Phone, Mail } from 'lucide-react';
+import { MessageCircle, X, Send, User, Bot } from 'lucide-react';
 import { chatService, type ChatMessage, type ChatResponse } from '../services/chat';
 import { useTranslation } from 'react-i18next';
 
@@ -203,31 +203,6 @@ const ChatWidget: React.FC = () => {
               </div>
             </div>
           )}
-
-          {/* Contact Options */}
-          <div className="px-4 py-2 border-t border-gray-200 bg-gray-50">
-            <div className="flex justify-between items-center text-xs">
-              <span className="text-gray-600">{t('chat.needHelp')}</span>
-              <div className="flex space-x-3">
-                <a
-                  href="tel:+393456789012"
-                  className="flex items-center space-x-1 text-primary-600 hover:text-primary-700"
-                  title={t('contact.callUs')}
-                >
-                  <Phone className="h-3 w-3" />
-                  <span>{t('chat.call')}</span>
-                </a>
-                <a
-                  href="mailto:info@gardaracing.com"
-                  className="flex items-center space-x-1 text-primary-600 hover:text-primary-700"
-                  title={t('contact.emailUs')}
-                >
-                  <Mail className="h-3 w-3" />
-                  <span>{t('chat.email')}</span>
-                </a>
-              </div>
-            </div>
-          </div>
 
           {/* Input */}
           <div className="p-4 border-t border-gray-200">
