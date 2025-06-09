@@ -276,20 +276,20 @@ const AboutPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-8 font-serif">Our Mission & Vision</h2>
+              <h2 className="text-4xl font-bold text-gray-900 mb-8 font-serif">{t('about.missionVision')}</h2>
               
               <div className="space-y-8">
                 <div className="border-l-4 border-primary-600 pl-6">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-3">Mission</h3>
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-3">{t('about.mission')}</h3>
                   <p className="text-gray-700 leading-relaxed">
-                    To provide authentic, safe, and unforgettable yacht racing experiences that inspire a lifelong love of sailing while showcasing the natural beauty of Lake Garda.
+                    {t('about.missionDescription')}
                   </p>
                 </div>
                 
                 <div className="border-l-4 border-gold-500 pl-6">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-3">Vision</h3>
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-3">{t('about.vision')}</h3>
                   <p className="text-gray-700 leading-relaxed">
-                    To be recognized as Europe's premier destination for yacht racing experiences, where every guest leaves as a confident sailor with memories that last a lifetime.
+                    {t('about.visionDescription')}
                   </p>
                 </div>
               </div>
