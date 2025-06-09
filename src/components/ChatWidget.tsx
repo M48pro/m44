@@ -73,7 +73,7 @@ const ChatWidget: React.FC = () => {
       console.error('Error sending message:', error);
       const errorMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
-        text: t('common.error') + ': ' + t('chat.errorMessage', 'Sorry, I\'m having trouble responding right now. Please call us at +39 345 678 9012 for immediate assistance.'),
+        text: t('common.error') + ': ' + t('chat.errorMessage', 'Sorry, I\'m having trouble responding right now. Please try again later.'),
         sender: 'bot',
         timestamp: new Date(),
         language: currentLanguage
