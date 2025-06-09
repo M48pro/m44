@@ -11,37 +11,37 @@ const AboutPage: React.FC = () => {
     { 
       year: '2009', 
       title: t('about.theBeginning'), 
-      description: 'Founded by passionate sailor Marco Benedetti with a single yacht and a dream to share authentic racing experiences',
+      description: t('about.milestone2009'),
       icon: Anchor
     },
     { 
       year: '2012', 
-      title: 'First 1000 Guests', 
-      description: 'Reached our first major milestone of satisfied customers from across Europe',
+      title: t('about.milestone2012Title'), 
+      description: t('about.milestone2012'),
       icon: Users
     },
     { 
       year: '2015', 
-      title: 'RYA Certification', 
-      description: 'Achieved Royal Yachting Association certification for professional sailing instruction',
+      title: t('about.milestone2015Title'), 
+      description: t('about.milestone2015'),
       icon: Award
     },
     { 
       year: '2018', 
-      title: 'Fleet Expansion', 
-      description: 'Added modern Bavaria racing yachts to provide the ultimate sailing experience',
+      title: t('about.milestone2018Title'), 
+      description: t('about.milestone2018'),
       icon: Trophy
     },
     { 
       year: '2020', 
-      title: 'Digital Innovation', 
-      description: 'Launched online booking platform and digital guest services',
+      title: t('about.milestone2020Title'), 
+      description: t('about.milestone2020'),
       icon: Target
     },
     { 
       year: '2024', 
-      title: '2000+ Happy Sailors', 
-      description: 'Celebrating over 2000 satisfied customers from 30+ countries worldwide',
+      title: t('about.milestone2024Title'), 
+      description: t('about.milestone2024'),
       icon: Star
     }
   ];
@@ -49,63 +49,79 @@ const AboutPage: React.FC = () => {
   const team = [
     {
       name: 'Marco Benedetti',
-      role: 'Founder & Head Skipper',
+      role: t('about.team.marco.role'),
       image: 'https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      description: 'RYA Yachtmaster with 20+ years of sailing experience on Lake Garda. Former competitive racer turned passionate instructor.',
-      specialties: ['Racing Strategy', 'Safety Management', 'Guest Experience']
+      description: t('about.team.marco.description'),
+      specialties: [
+        t('about.team.marco.specialties.strategy'),
+        t('about.team.marco.specialties.safety'),
+        t('about.team.marco.specialties.experience')
+      ]
     },
     {
       name: 'Sofia Rossi',
-      role: 'Operations Manager',
+      role: t('about.team.sofia.role'),
       image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      description: 'Ensures every guest has an unforgettable experience. Multilingual hospitality expert with a passion for sailing.',
-      specialties: ['Guest Relations', 'Quality Assurance', 'Team Coordination']
+      description: t('about.team.sofia.description'),
+      specialties: [
+        t('about.team.sofia.specialties.relations'),
+        t('about.team.sofia.specialties.quality'),
+        t('about.team.sofia.specialties.coordination')
+      ]
     },
     {
       name: 'Andreas Mueller',
-      role: 'Senior Skipper',
+      role: t('about.team.andreas.role'),
       image: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      description: 'Former Olympic sailor and certified sailing instructor. Brings world-class racing expertise to every experience.',
-      specialties: ['Advanced Techniques', 'Competition Training', 'Weather Analysis']
+      description: t('about.team.andreas.description'),
+      specialties: [
+        t('about.team.andreas.specialties.techniques'),
+        t('about.team.andreas.specialties.training'),
+        t('about.team.andreas.specialties.weather')
+      ]
     },
     {
       name: 'Elena Bianchi',
-      role: 'Safety Officer & Instructor',
+      role: t('about.team.elena.role'),
       image: 'https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      description: 'Certified marine safety expert and sailing instructor. Ensures all experiences meet the highest safety standards.',
-      specialties: ['Safety Protocols', 'Emergency Response', 'Equipment Management']
+      description: t('about.team.elena.description'),
+      specialties: [
+        t('about.team.elena.specialties.protocols'),
+        t('about.team.elena.specialties.response'),
+        t('about.team.elena.specialties.equipment')
+      ]
     }
   ];
 
   const values = [
     {
       icon: Shield,
-      title: 'Safety First',
-      description: 'Your safety is our absolute priority. We maintain the highest safety standards, use only certified equipment, and conduct thorough briefings before every experience.',
+      title: t('about.values.safety.title'),
+      description: t('about.values.safety.description'),
       color: 'bg-green-50 text-green-600'
     },
     {
       icon: Heart,
-      title: 'Passion for Sailing',
-      description: 'We live and breathe sailing. Our genuine passion for the sport drives everything we do, from instruction quality to creating unforgettable memories.',
+      title: t('about.values.passion.title'),
+      description: t('about.values.passion.description'),
       color: 'bg-red-50 text-red-600'
     },
     {
       icon: Users,
-      title: 'Inclusive Excellence',
-      description: 'Whether you\'re a complete beginner or experienced sailor, everyone is welcome. We tailor each experience to ensure everyone feels confident and engaged.',
+      title: t('about.values.inclusive.title'),
+      description: t('about.values.inclusive.description'),
       color: 'bg-blue-50 text-blue-600'
     },
     {
       icon: Trophy,
-      title: 'Authentic Racing',
-      description: 'We provide genuine yacht racing experiences with real competition, official timing, and meaningful recognition of achievement.',
+      title: t('about.values.authentic.title'),
+      description: t('about.values.authentic.description'),
       color: 'bg-yellow-50 text-yellow-600'
     },
     {
       icon: Target,
-      title: 'Continuous Innovation',
-      description: 'We constantly evolve our services, incorporating the latest sailing techniques, safety protocols, and guest experience innovations.',
+      title: t('about.values.innovation.title'),
+      description: t('about.values.innovation.description'),
       color: 'bg-purple-50 text-purple-600'
     }
   ];
@@ -113,71 +129,71 @@ const AboutPage: React.FC = () => {
   const achievements = [
     {
       icon: Award,
-      title: 'RYA Certified Excellence',
-      description: 'Royal Yachting Association certification for professional sailing instruction',
+      title: t('about.achievements.ryaCertified.title'),
+      description: t('about.achievements.ryaCertified.description'),
       year: '2015'
     },
     {
       icon: Star,
-      title: '4.9★ Guest Rating',
-      description: 'Consistently high ratings across all review platforms',
-      year: 'Ongoing'
+      title: t('about.achievements.guestRating.title'),
+      description: t('about.achievements.guestRating.description'),
+      year: t('about.achievements.ongoing')
     },
     {
       icon: Shield,
-      title: 'Zero Safety Incidents',
-      description: '15 years of operations with perfect safety record',
+      title: t('about.achievements.safetyRecord.title'),
+      description: t('about.achievements.safetyRecord.description'),
       year: '2009-2024'
     },
     {
       icon: Users,
-      title: '2000+ Satisfied Guests',
-      description: 'Welcomed sailors from over 30 countries worldwide',
+      title: t('about.achievements.satisfiedGuests.title'),
+      description: t('about.achievements.satisfiedGuests.description'),
       year: '2024'
     },
     {
       icon: Trophy,
-      title: 'Industry Recognition',
-      description: 'Featured in leading sailing and travel publications',
+      title: t('about.achievements.industryRecognition.title'),
+      description: t('about.achievements.industryRecognition.description'),
       year: '2020-2024'
     },
     {
       icon: Camera,
-      title: 'Media Excellence',
-      description: 'Professional photography and videography services included',
+      title: t('about.achievements.mediaExcellence.title'),
+      description: t('about.achievements.mediaExcellence.description'),
       year: '2018'
     }
   ];
 
   const differentiators = [
     {
-      title: 'Authentic Racing Experience',
-      description: 'Unlike tourist sailing trips, we offer real yacht racing with official timing, scoring, and competitive elements that create genuine excitement.',
+      title: t('about.differentiators.authentic.title'),
+      description: t('about.differentiators.authentic.description'),
       icon: Trophy
     },
     {
-      title: 'Professional Instruction',
-      description: 'Our RYA-certified skippers provide world-class instruction, ensuring you learn proper techniques while having fun.',
+      title: t('about.differentiators.professional.title'),
+      description: t('about.differentiators.professional.description'),
       icon: Award
     },
     {
-      title: 'Complete Experience Package',
-      description: 'Everything included: professional photos, racing medals, certificates, safety equipment, and expert guidance.',
+      title: t('about.differentiators.complete.title'),
+      description: t('about.differentiators.complete.description'),
       icon: Star
     },
     {
-      title: 'Perfect Location',
-      description: 'Lake Garda offers ideal sailing conditions with consistent thermal winds and stunning Alpine scenery.',
+      title: t('about.differentiators.location.title'),
+      description: t('about.differentiators.location.description'),
       icon: MapPin
     },
     {
-      title: 'Multilingual Team',
-      description: 'Our team speaks English, Italian, German, and Russian, ensuring clear communication and comfort for all guests.',
+      title: t('about.differentiators.multilingual.title'),
+      description: t('about.differentiators.multilingual.description'),
       icon: Users
     },
     {
-      title: 'Flexible & Reliable',
-      description: 'Daily departures, weather guarantees, and flexible booking policies make planning your experience stress-free.',
+      title: t('about.differentiators.flexible.title'),
+      description: t('about.differentiators.flexible.description'),
       icon: Calendar
     }
   ];
@@ -347,7 +363,7 @@ const AboutPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6 font-serif">{t('about.ourJourney')}</h2>
-            <p className="text-xl text-gray-600">Key milestones in our 15-year history of sailing excellence</p>
+            <p className="text-xl text-gray-600">{t('about.journeySubtitle')}</p>
           </div>
 
           <div className="relative">
@@ -379,7 +395,7 @@ const AboutPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6 font-serif">{t('about.ourValues')}</h2>
-            <p className="text-xl text-gray-600">The principles that guide everything we do</p>
+            <p className="text-xl text-gray-600">{t('about.valuesSubtitle')}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -401,7 +417,7 @@ const AboutPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6 font-serif">{t('about.meetTeam')}</h2>
-            <p className="text-xl text-gray-600">The passionate professionals behind your sailing experience</p>
+            <p className="text-xl text-gray-600">{t('about.teamSubtitle')}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -438,7 +454,7 @@ const AboutPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6 font-serif">{t('about.certifications')}</h2>
-            <p className="text-xl text-gray-600">Our commitment to excellence is recognized by leading organizations</p>
+            <p className="text-xl text-gray-600">{t('about.certificationsSubtitle')}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -460,8 +476,8 @@ const AboutPage: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6 font-serif">What Sets Us Apart</h2>
-            <p className="text-xl text-gray-600">Why thousands of sailors choose Garda Racing for their Lake Garda experience</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6 font-serif">{t('about.whatSetsUsApart')}</h2>
+            <p className="text-xl text-gray-600">{t('about.whyChooseUs')}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
