@@ -19,8 +19,7 @@ const CancellationPolicyPage: React.FC = () => {
           <h1 className="text-4xl font-bold text-gray-900 mb-8 font-serif">
             <ContentLoader 
               slug="cancellation-policy-title" 
-              fallbackKey="navigation.cancellation" 
-              as="span"
+              fallbackTranslationKey="navigation.cancellation" 
             />
           </h1>
           
@@ -28,56 +27,16 @@ const CancellationPolicyPage: React.FC = () => {
             <ContentLoader 
               slug="cancellation-policy-intro" 
               className="text-gray-600 mb-8"
-              as="div"
             />
 
-            <ContentLoader 
-              slug="cancellation-policy-timeline" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="cancellation-policy-weather" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="cancellation-policy-how-to-cancel" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="cancellation-policy-rescheduling" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="cancellation-policy-special-circumstances" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="cancellation-policy-refund-processing" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="cancellation-policy-no-show" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="cancellation-policy-contact" 
-              className="mb-8"
-              as="div"
-            />
+            <ContentLoader slug="cancellation-policy-timeline" />
+            <ContentLoader slug="cancellation-policy-weather" />
+            <ContentLoader slug="cancellation-policy-how-to-cancel" />
+            <ContentLoader slug="cancellation-policy-rescheduling" />
+            <ContentLoader slug="cancellation-policy-special-circumstances" />
+            <ContentLoader slug="cancellation-policy-refund-processing" />
+            <ContentLoader slug="cancellation-policy-no-show" />
+            <ContentLoader slug="cancellation-policy-contact" />
           </div>
         </div>
       </div>

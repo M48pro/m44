@@ -19,8 +19,7 @@ const TermsOfServicePage: React.FC = () => {
           <h1 className="text-4xl font-bold text-gray-900 mb-8 font-serif">
             <ContentLoader 
               slug="terms-of-service-title" 
-              fallbackKey="navigation.terms" 
-              as="span"
+              fallbackTranslationKey="navigation.terms" 
             />
           </h1>
           
@@ -28,80 +27,20 @@ const TermsOfServicePage: React.FC = () => {
             <ContentLoader 
               slug="terms-of-service-intro" 
               className="text-gray-600 mb-8"
-              as="div"
             />
 
-            <ContentLoader 
-              slug="terms-of-service-acceptance" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="terms-of-service-description" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="terms-of-service-booking" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="terms-of-service-requirements" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="terms-of-service-safety" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="terms-of-service-weather" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="terms-of-service-intellectual-property" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="terms-of-service-conduct" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="terms-of-service-force-majeure" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="terms-of-service-governing-law" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="terms-of-service-changes" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="terms-of-service-contact" 
-              className="mb-8"
-              as="div"
-            />
+            <ContentLoader slug="terms-of-service-acceptance" />
+            <ContentLoader slug="terms-of-service-description" />
+            <ContentLoader slug="terms-of-service-booking" />
+            <ContentLoader slug="terms-of-service-requirements" />
+            <ContentLoader slug="terms-of-service-safety" />
+            <ContentLoader slug="terms-of-service-weather" />
+            <ContentLoader slug="terms-of-service-intellectual-property" />
+            <ContentLoader slug="terms-of-service-conduct" />
+            <ContentLoader slug="terms-of-service-force-majeure" />
+            <ContentLoader slug="terms-of-service-governing-law" />
+            <ContentLoader slug="terms-of-service-changes" />
+            <ContentLoader slug="terms-of-service-contact" />
           </div>
         </div>
       </div>

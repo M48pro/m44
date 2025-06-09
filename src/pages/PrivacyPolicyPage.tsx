@@ -19,8 +19,7 @@ const PrivacyPolicyPage: React.FC = () => {
           <h1 className="text-4xl font-bold text-gray-900 mb-8 font-serif">
             <ContentLoader 
               slug="privacy-policy-title" 
-              fallbackKey="navigation.privacy" 
-              as="span"
+              fallbackTranslationKey="navigation.privacy" 
             />
           </h1>
           
@@ -28,74 +27,19 @@ const PrivacyPolicyPage: React.FC = () => {
             <ContentLoader 
               slug="privacy-policy-intro" 
               className="text-gray-600 mb-8"
-              as="div"
             />
 
-            <ContentLoader 
-              slug="privacy-policy-information-collected" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="privacy-policy-information-use" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="privacy-policy-information-sharing" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="privacy-policy-data-security" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="privacy-policy-your-rights" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="privacy-policy-cookies" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="privacy-policy-data-retention" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="privacy-policy-international-transfers" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="privacy-policy-childrens-privacy" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="privacy-policy-changes" 
-              className="mb-8"
-              as="div"
-            />
-
-            <ContentLoader 
-              slug="privacy-policy-contact" 
-              className="mb-8"
-              as="div"
-            />
+            <ContentLoader slug="privacy-policy-information-collected" />
+            <ContentLoader slug="privacy-policy-information-use" />
+            <ContentLoader slug="privacy-policy-information-sharing" />
+            <ContentLoader slug="privacy-policy-data-security" />
+            <ContentLoader slug="privacy-policy-your-rights" />
+            <ContentLoader slug="privacy-policy-cookies" />
+            <ContentLoader slug="privacy-policy-data-retention" />
+            <ContentLoader slug="privacy-policy-international-transfers" />
+            <ContentLoader slug="privacy-policy-childrens-privacy" />
+            <ContentLoader slug="privacy-policy-changes" />
+            <ContentLoader slug="privacy-policy-contact" />
           </div>
         </div>
       </div>

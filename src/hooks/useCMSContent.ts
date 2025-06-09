@@ -1,75 +1,79 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { cmsService, type CMSContent } from '../services/cms';
+import { supabase } from '../services/supabase';
 
-export const useCMSContent = (slug: string) => {
-  const { i18n } = useTranslation();
-  const [content, setContent] = useState<CMSContent | null>(null);
-  const [loading, setLoading] = useState(true);
+interface UseCMSContentOptions {
+  fallbackLanguage?: string;
+  fallbackTranslationKey?: string;
+}
+
+export const useCMSContent = (
+  slug: string, 
+  options: UseCMSContentOptions = {}
+) => {
+  const { i18n, t } = useTranslation();
+  const [content, setContent] = useState<string | null>(null);
+  const [title, setTitle] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  
+  const { 
+    fallbackLanguage = 'en',
+    fallbackTranslationKey
+  } = options;
 
   useEffect(() => {
     const fetchContent = async () => {
-      setLoading(true);
+      setIsLoading(true);
       setError(null);
       
       try {
-        const data = await cmsService.getContentWithFallback(slug, i18n.language, 'en');
-        setContent(data);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to fetch content');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchContent();
-  }, [slug, i18n.language]);
-
-  return { content, loading, error };
-};
-
-export const useMultipleCMSContent = (slugs: string[]) => {
-  const { i18n } = useTranslation();
-  const [content, setContent] = useState<CMSContent[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchContent = async () => {
-      setLoading(true);
-      setError(null);
-      
-      try {
-        const data = await cmsService.getMultipleContent(slugs, i18n.language);
+        // First try to get content in the current language
+        let { data, error } = await supabase
+          .from('cms_content')
+          .select('content, title')
+          .eq('slug', slug)
+          .eq('language', i18n.language)
+          .eq('published', true)
+          .single();
         
-        // If some content is missing in the current language, fetch fallbacks
-        if (data.length < slugs.length) {
-          const foundSlugs = data.map(item => item.slug);
-          const missingSlugs = slugs.filter(slug => !foundSlugs.includes(slug));
-          
-          if (missingSlugs.length > 0 && i18n.language !== 'en') {
-            const fallbackData = await cmsService.getMultipleContent(missingSlugs, 'en');
-            data.push(...fallbackData);
+        // If not found, try fallback language
+        if (error && i18n.language !== fallbackLanguage) {
+          const fallbackResult = await supabase
+            .from('cms_content')
+            .select('content, title')
+            .eq('slug', slug)
+            .eq('language', fallbackLanguage)
+            .eq('published', true)
+            .single();
+            
+          if (!fallbackResult.error) {
+            data = fallbackResult.data;
+            error = null;
           }
         }
         
-        setContent(data);
+        if (error) {
+          throw new Error(`Content not found: ${error.message}`);
+        }
+        
+        setContent(data.content);
+        setTitle(data.title);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to fetch content');
+        console.error('Error fetching content:', err);
+        setError('Failed to load content');
+        
+        // If we have a fallback translation key, we'll use that
+        if (fallbackTranslationKey) {
+          setContent(t(fallbackTranslationKey));
+        }
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     };
+    
+    fetchContent();
+  }, [slug, i18n.language, fallbackLanguage, t, fallbackTranslationKey]);
 
-    if (slugs.length > 0) {
-      fetchContent();
-    }
-  }, [slugs, i18n.language]);
-
-  const getContentBySlug = (slug: string): CMSContent | null => {
-    return content.find(item => item.slug === slug) || null;
-  };
-
-  return { content, loading, error, getContentBySlug };
+  return { content, title, isLoading, error };
 };
