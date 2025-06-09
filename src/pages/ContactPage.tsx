@@ -326,7 +326,7 @@ const ContactPage: React.FC = () => {
               </h2>
             </div>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              {t('experience.faq.stillQuestions')}
+              {t('contact.faqSubtitle')}
             </p>
           </div>
 
@@ -377,7 +377,7 @@ const ContactPage: React.FC = () => {
                 {t('experience.faq.stillQuestions')}
               </h3>
               <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-                Can't find what you're looking for? Our friendly team is here to help with any questions about your yacht racing experience.
+                Не можете найти то, что ищете? Наша дружелюбная команда готова помочь с любыми вопросами о вашем яхтенном опыте.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
@@ -385,14 +385,14 @@ const ContactPage: React.FC = () => {
                   className="bg-primary-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors duration-300 inline-flex items-center justify-center space-x-2"
                 >
                   <Phone className="h-5 w-5" />
-                  <span>Call Us Now</span>
+                  <span>Позвоните нам</span>
                 </a>
                 <a
                   href="mailto:info@gardaracing.com"
                   className="bg-white text-primary-600 border-2 border-primary-600 px-8 py-3 rounded-lg font-semibold hover:bg-primary-600 hover:text-white transition-colors duration-300 inline-flex items-center justify-center space-x-2"
                 >
                   <Mail className="h-5 w-5" />
-                  <span>Send Email</span>
+                  <span>Напишите нам</span>
                 </a>
               </div>
             </div>
