@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { supabase } from '../services/supabase';
-import { cmsService, CMSContent } from '../services/cms';
+import { cmsService, type CMSContent } from '../services/cms';
 
 interface UseCMSContentOptions {
   fallbackLanguage?: string;
@@ -29,44 +28,28 @@ export const useCMSContent = (
       setError(null);
       
       try {
-        // First try to get content in the current language
-        let { data, error } = await supabase
-          .from('cms_content')
-          .select('content, title')
-          .eq('slug', slug)
-          .eq('language', i18n.language)
-          .eq('published', true)
-          .single();
+        const cmsContent = await cmsService.getContentWithFallback(
+          slug, 
+          i18n.language, 
+          fallbackLanguage
+        );
         
-        // If not found, try fallback language
-        if (error && i18n.language !== fallbackLanguage) {
-          const fallbackResult = await supabase
-            .from('cms_content')
-            .select('content, title')
-            .eq('slug', slug)
-            .eq('language', fallbackLanguage)
-            .eq('published', true)
-            .single();
-            
-          if (!fallbackResult.error) {
-            data = fallbackResult.data;
-            error = null;
-          }
+        if (cmsContent) {
+          setContent(cmsContent.content);
+          setTitle(cmsContent.title);
+        } else if (fallbackTranslationKey) {
+          setContent(t(fallbackTranslationKey));
+          setTitle(t(fallbackTranslationKey));
+        } else {
+          throw new Error(`Content not found for slug: ${slug}`);
         }
-        
-        if (error) {
-          throw new Error(`Content not found: ${error.message}`);
-        }
-        
-        setContent(data.content);
-        setTitle(data.title);
       } catch (err) {
         console.error('Error fetching content:', err);
         setError('Failed to load content');
         
-        // If we have a fallback translation key, we'll use that
         if (fallbackTranslationKey) {
           setContent(t(fallbackTranslationKey));
+          setTitle(t(fallbackTranslationKey));
         }
       } finally {
         setIsLoading(false);
@@ -96,12 +79,30 @@ export const useMultipleCMSContent = (
       setError(null);
       
       try {
-        const content = await cmsService.getMultipleContent(
+        const contentArray = await cmsService.getMultipleContent(
           slugs, 
-          i18n.language, 
-          fallbackLanguage
+          i18n.language
         );
-        setContentMap(content);
+        
+        // If some content is missing in current language, try fallback
+        const missingContent = slugs.filter(slug => 
+          !contentArray.find(content => content.slug === slug)
+        );
+        
+        if (missingContent.length > 0 && i18n.language !== fallbackLanguage) {
+          const fallbackContent = await cmsService.getMultipleContent(
+            missingContent,
+            fallbackLanguage
+          );
+          contentArray.push(...fallbackContent);
+        }
+        
+        const map = new Map<string, CMSContent>();
+        contentArray.forEach(content => {
+          map.set(content.slug, content);
+        });
+        
+        setContentMap(map);
       } catch (err) {
         console.error('Error fetching multiple content:', err);
         setError('Failed to load content');
@@ -117,5 +118,16 @@ export const useMultipleCMSContent = (
     }
   }, [slugs, i18n.language, fallbackLanguage]);
 
-  return { contentMap, isLoading, error };
+  // Helper function to get content by slug
+  const getContentBySlug = (slug: string): CMSContent | undefined => {
+    return contentMap.get(slug);
+  };
+
+  return { 
+    contentMap, 
+    isLoading, 
+    error, 
+    getContentBySlug,
+    content: contentMap // For backward compatibility
+  };
 };
