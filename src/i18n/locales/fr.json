@@ -154,11 +154,150 @@
     "ourStory": "Notre Histoire",
     "theBeginning": "Le Commencement",
     "ourJourney": "Notre Voyage",
+    "journeySubtitle": "Étapes clés de nos 15 années d'excellence en voile",
     "ourValues": "Nos Valeurs",
+    "valuesSubtitle": "Les principes qui guident tout ce que nous faisons",
     "meetTeam": "Rencontrez Notre Équipe",
+    "teamSubtitle": "Les professionnels passionnés derrière votre expérience de voile",
     "certifications": "Certifications & Reconnaissance",
+    "certificationsSubtitle": "Notre engagement envers l'excellence est reconnu par les organisations leaders",
     "readyToJoin": "Prêt à Rejoindre Notre Histoire?",
-    "joinCommunity": "Devenez partie de notre communauté de voile et créez vos propres souvenirs inoubliables sur le lac de Garde."
+    "joinCommunity": "Devenez partie de notre communauté de voile et créez vos propres souvenirs inoubliables sur le lac de Garde.",
+    "storyDescription": "Ce qui a commencé comme un projet de passion d'un groupe d'enthousiastes de la voile est devenu le principal fournisseur d'expériences de course de yacht du lac de Garde. Notre voyage a commencé en 2009 quand le fondateur Marco Benedetti a décidé de partager son amour pour la voile compétitive avec des visiteurs du monde entier.",
+    "beginningDescription": "Le lac de Garde a toujours été un paradis pour les marins, avec ses vents constants et son magnifique décor alpin. Marco, un marin de toute une vie et ancien coureur compétitif, a reconnu que de nombreux visiteurs du lac voulaient vivre des courses de yacht authentiques mais n'en avaient pas l'opportunité.",
+    "journeyDescription1": "Commençant avec un seul yacht et un rêve, Marco a commencé à offrir des expériences de voile personnalisées qui combinaient instruction professionnelle avec le frisson de la course compétitive. La nouvelle s'est rapidement répandue sur ces aventures uniques qui permettaient aux débutants complets de vivre l'excitation des courses de yacht.",
+    "journeyDescription2": "Aujourd'hui, nous exploitons une flotte de yachts de course modernes et avons accueilli plus de 2 000 invités de plus de 30 pays, chacun repartant avec des souvenirs inoubliables et une nouvelle appréciation pour le sport de la voile.",
+    "missionVision": "Notre Mission & Vision",
+    "mission": "Mission",
+    "missionDescription": "Fournir des expériences de course de yacht authentiques, sûres et inoubliables qui inspirent un amour de la voile pour la vie tout en montrant la beauté naturelle du lac de Garde.",
+    "vision": "Vision",
+    "visionDescription": "Être reconnu comme la destination première d'Europe pour les expériences de course de yacht, où chaque invité repart comme un marin confiant avec des souvenirs qui durent toute une vie.",
+    "milestone2009": "Fondé par le marin passionné Marco Benedetti avec un seul yacht et le rêve de partager des expériences de course authentiques",
+    "milestone2012Title": "Premiers 1000 Invités",
+    "milestone2012": "Atteint notre premier jalon majeur de clients satisfaits de toute l'Europe",
+    "milestone2015Title": "Certification RYA",
+    "milestone2015": "Obtenu la certification de la Royal Yachting Association pour l'instruction de voile professionnelle",
+    "milestone2018Title": "Expansion de la Flotte",
+    "milestone2018": "Ajouté des yachts de course Bavaria modernes pour fournir l'expérience de voile ultime",
+    "milestone2020Title": "Innovation Numérique",
+    "milestone2020": "Lancé la plateforme de réservation en ligne et les services numériques pour les invités",
+    "milestone2024Title": "2000+ Marins Heureux",
+    "milestone2024": "Célébrant plus de 2000 clients satisfaits de 30+ pays dans le monde",
+    "values": {
+      "safety": {
+        "title": "Sécurité d'Abord",
+        "description": "Votre sécurité est notre priorité absolue. Nous maintenons les plus hauts standards de sécurité, utilisons uniquement des équipements certifiés et menons des briefings approfondis avant chaque expérience."
+      },
+      "passion": {
+        "title": "Passion pour la Voile",
+        "description": "Nous vivons et respirons la voile. Notre passion authentique pour le sport guide tout ce que nous faisons, de la qualité de l'instruction à la création de souvenirs inoubliables."
+      },
+      "inclusive": {
+        "title": "Excellence Inclusive",
+        "description": "Que vous soyez un débutant complet ou un marin expérimenté, tout le monde est le bienvenu. Nous adaptons chaque expérience pour nous assurer que chacun se sente confiant et engagé."
+      },
+      "authentic": {
+        "title": "Course Authentique",
+        "description": "Nous fournissons de véritables expériences de course de yacht avec une vraie compétition, un chronométrage officiel et une reconnaissance significative des réalisations."
+      },
+      "innovation": {
+        "title": "Innovation Continue",
+        "description": "Nous évoluons constamment nos services, incorporant les dernières techniques de voile, protocoles de sécurité et innovations d'expérience client."
+      }
+    },
+    "team": {
+      "marco": {
+        "role": "Fondateur & Skipper Principal",
+        "description": "RYA Yachtmaster avec plus de 20 ans d'expérience de voile sur le lac de Garde. Ancien coureur compétitif devenu instructeur passionné.",
+        "specialties": {
+          "strategy": "Stratégie de Course",
+          "safety": "Gestion de la Sécurité",
+          "experience": "Expérience Client"
+        }
+      },
+      "sofia": {
+        "role": "Directrice des Opérations",
+        "description": "Assure que chaque invité ait une expérience inoubliable. Experte en hospitalité multilingue avec une passion pour la voile.",
+        "specialties": {
+          "relations": "Relations Client",
+          "quality": "Assurance Qualité",
+          "coordination": "Coordination d'Équipe"
+        }
+      },
+      "andreas": {
+        "role": "Skipper Senior",
+        "description": "Ancien marin olympique et instructeur de voile certifié. Apporte une expertise de course de classe mondiale à chaque expérience.",
+        "specialties": {
+          "techniques": "Techniques Avancées",
+          "training": "Entraînement Compétitif",
+          "weather": "Analyse Météorologique"
+        }
+      },
+      "elena": {
+        "role": "Officier de Sécurité & Instructrice",
+        "description": "Experte en sécurité marine certifiée et instructrice de voile. Assure que toutes les expériences répondent aux plus hauts standards de sécurité.",
+        "specialties": {
+          "protocols": "Protocoles de Sécurité",
+          "response": "Réponse d'Urgence",
+          "equipment": "Gestion d'Équipement"
+        }
+      }
+    },
+    "achievements": {
+      "ryaCertified": {
+        "title": "Excellence Certifiée RYA",
+        "description": "Certification de la Royal Yachting Association pour l'instruction de voile professionnelle"
+      },
+      "guestRating": {
+        "title": "Note Client 4.9★",
+        "description": "Notes constamment élevées sur toutes les plateformes d'avis"
+      },
+      "safetyRecord": {
+        "title": "Zéro Incident de Sécurité",
+        "description": "15 ans d'opérations avec un record de sécurité parfait"
+      },
+      "satisfiedGuests": {
+        "title": "2000+ Invités Satisfaits",
+        "description": "Accueilli des marins de plus de 30 pays dans le monde"
+      },
+      "industryRecognition": {
+        "title": "Reconnaissance de l'Industrie",
+        "description": "Présenté dans les principales publications de voile et de voyage"
+      },
+      "mediaExcellence": {
+        "title": "Excellence Médiatique",
+        "description": "Services de photographie et vidéographie professionnels inclus"
+      },
+      "ongoing": "En cours"
+    },
+    "whatSetsUsApart": "Ce Qui Nous Distingue",
+    "whyChooseUs": "Pourquoi des milliers de marins choisissent Garda Racing pour leur expérience du lac de Garde",
+    "differentiators": {
+      "authentic": {
+        "title": "Expérience de Course Authentique",
+        "description": "Contrairement aux voyages touristiques en voile, nous offrons de vraies courses de yacht avec chronométrage officiel, notation et éléments compétitifs qui créent une véritable excitation."
+      },
+      "professional": {
+        "title": "Instruction Professionnelle",
+        "description": "Nos skippers certifiés RYA fournissent une instruction de classe mondiale, s'assurant que vous apprenez les bonnes techniques tout en vous amusant."
+      },
+      "complete": {
+        "title": "Package d'Expérience Complet",
+        "description": "Tout inclus : photos professionnelles, médailles de course, certificats, équipement de sécurité et guidance experte."
+      },
+      "location": {
+        "title": "Emplacement Parfait",
+        "description": "Le lac de Garde offre des conditions idéales pour la voile avec des vents thermiques constants et un magnifique paysage alpin."
+      },
+      "multilingual": {
+        "title": "Équipe Multilingue",
+        "description": "Notre équipe parle anglais, italien, allemand et russe, assurant une communication claire et le confort pour tous les invités."
+      },
+      "flexible": {
+        "title": "Flexible & Fiable",
+        "description": "Départs quotidiens, garanties météo et politiques de réservation flexibles rendent la planification de votre expérience sans stress."
+      }
+    }
   },
   "contact": {
     "title": "Contactez-Nous",

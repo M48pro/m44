@@ -301,11 +301,150 @@
     "ourStory": "Our Story",
     "theBeginning": "The Beginning",
     "ourJourney": "Our Journey",
+    "journeySubtitle": "Key milestones in our 15-year history of sailing excellence",
     "ourValues": "Our Values",
+    "valuesSubtitle": "The principles that guide everything we do",
     "meetTeam": "Meet Our Team",
+    "teamSubtitle": "The passionate professionals behind your sailing experience",
     "certifications": "Certifications & Recognition",
+    "certificationsSubtitle": "Our commitment to excellence is recognized by leading organizations",
     "readyToJoin": "Ready to Join Our Story?",
-    "joinCommunity": "Become part of our sailing community and create your own unforgettable memories on Lake Garda."
+    "joinCommunity": "Become part of our sailing community and create your own unforgettable memories on Lake Garda.",
+    "storyDescription": "What started as a passion project by a group of sailing enthusiasts has grown into Lake Garda's premier yacht racing experience provider. Our journey began in 2009 when founder Marco Benedetti decided to share his love for competitive sailing with visitors from around the world.",
+    "beginningDescription": "Lake Garda has always been a sailor's paradise, with its consistent winds and stunning Alpine backdrop. Marco, a lifelong sailor and former competitive racer, recognized that many visitors to the lake wanted to experience authentic yacht racing but lacked the opportunity.",
+    "journeyDescription1": "Starting with a single yacht and a dream, Marco began offering personalized sailing experiences that combined professional instruction with the thrill of competitive racing. Word spread quickly about these unique adventures that allowed complete beginners to experience the excitement of yacht racing.",
+    "journeyDescription2": "Today, we operate a fleet of modern racing yachts and have welcomed over 2,000 guests from more than 30 countries, each leaving with unforgettable memories and a newfound appreciation for the sport of sailing.",
+    "missionVision": "Our Mission & Vision",
+    "mission": "Mission",
+    "missionDescription": "To provide authentic, safe, and unforgettable yacht racing experiences that inspire a lifelong love of sailing while showcasing the natural beauty of Lake Garda.",
+    "vision": "Vision",
+    "visionDescription": "To be recognized as Europe's premier destination for yacht racing experiences, where every guest leaves as a confident sailor with memories that last a lifetime.",
+    "milestone2009": "Founded by passionate sailor Marco Benedetti with a single yacht and a dream to share authentic racing experiences",
+    "milestone2012Title": "First 1000 Guests",
+    "milestone2012": "Reached our first major milestone of satisfied customers from across Europe",
+    "milestone2015Title": "RYA Certification",
+    "milestone2015": "Achieved Royal Yachting Association certification for professional sailing instruction",
+    "milestone2018Title": "Fleet Expansion",
+    "milestone2018": "Added modern Bavaria racing yachts to provide the ultimate sailing experience",
+    "milestone2020Title": "Digital Innovation",
+    "milestone2020": "Launched online booking platform and digital guest services",
+    "milestone2024Title": "2000+ Happy Sailors",
+    "milestone2024": "Celebrating over 2000 satisfied customers from 30+ countries worldwide",
+    "values": {
+      "safety": {
+        "title": "Safety First",
+        "description": "Your safety is our absolute priority. We maintain the highest safety standards, use only certified equipment, and conduct thorough briefings before every experience."
+      },
+      "passion": {
+        "title": "Passion for Sailing",
+        "description": "We live and breathe sailing. Our genuine passion for the sport drives everything we do, from instruction quality to creating unforgettable memories."
+      },
+      "inclusive": {
+        "title": "Inclusive Excellence",
+        "description": "Whether you're a complete beginner or experienced sailor, everyone is welcome. We tailor each experience to ensure everyone feels confident and engaged."
+      },
+      "authentic": {
+        "title": "Authentic Racing",
+        "description": "We provide genuine yacht racing experiences with real competition, official timing, and meaningful recognition of achievement."
+      },
+      "innovation": {
+        "title": "Continuous Innovation",
+        "description": "We constantly evolve our services, incorporating the latest sailing techniques, safety protocols, and guest experience innovations."
+      }
+    },
+    "team": {
+      "marco": {
+        "role": "Founder & Head Skipper",
+        "description": "RYA Yachtmaster with 20+ years of sailing experience on Lake Garda. Former competitive racer turned passionate instructor.",
+        "specialties": {
+          "strategy": "Racing Strategy",
+          "safety": "Safety Management",
+          "experience": "Guest Experience"
+        }
+      },
+      "sofia": {
+        "role": "Operations Manager",
+        "description": "Ensures every guest has an unforgettable experience. Multilingual hospitality expert with a passion for sailing.",
+        "specialties": {
+          "relations": "Guest Relations",
+          "quality": "Quality Assurance",
+          "coordination": "Team Coordination"
+        }
+      },
+      "andreas": {
+        "role": "Senior Skipper",
+        "description": "Former Olympic sailor and certified sailing instructor. Brings world-class racing expertise to every experience.",
+        "specialties": {
+          "techniques": "Advanced Techniques",
+          "training": "Competition Training",
+          "weather": "Weather Analysis"
+        }
+      },
+      "elena": {
+        "role": "Safety Officer & Instructor",
+        "description": "Certified marine safety expert and sailing instructor. Ensures all experiences meet the highest safety standards.",
+        "specialties": {
+          "protocols": "Safety Protocols",
+          "response": "Emergency Response",
+          "equipment": "Equipment Management"
+        }
+      }
+    },
+    "achievements": {
+      "ryaCertified": {
+        "title": "RYA Certified Excellence",
+        "description": "Royal Yachting Association certification for professional sailing instruction"
+      },
+      "guestRating": {
+        "title": "4.9★ Guest Rating",
+        "description": "Consistently high ratings across all review platforms"
+      },
+      "safetyRecord": {
+        "title": "Zero Safety Incidents",
+        "description": "15 years of operations with perfect safety record"
+      },
+      "satisfiedGuests": {
+        "title": "2000+ Satisfied Guests",
+        "description": "Welcomed sailors from over 30 countries worldwide"
+      },
+      "industryRecognition": {
+        "title": "Industry Recognition",
+        "description": "Featured in leading sailing and travel publications"
+      },
+      "mediaExcellence": {
+        "title": "Media Excellence",
+        "description": "Professional photography and videography services included"
+      },
+      "ongoing": "Ongoing"
+    },
+    "whatSetsUsApart": "What Sets Us Apart",
+    "whyChooseUs": "Why thousands of sailors choose Garda Racing for their Lake Garda experience",
+    "differentiators": {
+      "authentic": {
+        "title": "Authentic Racing Experience",
+        "description": "Unlike tourist sailing trips, we offer real yacht racing with official timing, scoring, and competitive elements that create genuine excitement."
+      },
+      "professional": {
+        "title": "Professional Instruction",
+        "description": "Our RYA-certified skippers provide world-class instruction, ensuring you learn proper techniques while having fun."
+      },
+      "complete": {
+        "title": "Complete Experience Package",
+        "description": "Everything included: professional photos, racing medals, certificates, safety equipment, and expert guidance."
+      },
+      "location": {
+        "title": "Perfect Location",
+        "description": "Lake Garda offers ideal sailing conditions with consistent thermal winds and stunning Alpine scenery."
+      },
+      "multilingual": {
+        "title": "Multilingual Team",
+        "description": "Our team speaks English, Italian, German, and Russian, ensuring clear communication and comfort for all guests."
+      },
+      "flexible": {
+        "title": "Flexible & Reliable",
+        "description": "Daily departures, weather guarantees, and flexible booking policies make planning your experience stress-free."
+      }
+    }
   },
   "contact": {
     "title": "Contact Us",

@@ -154,11 +154,150 @@
     "ourStory": "Unsere Geschichte",
     "theBeginning": "Der Anfang",
     "ourJourney": "Unsere Reise",
+    "journeySubtitle": "Wichtige Meilensteine in unserer 15-jährigen Geschichte der Segelexzellenz",
     "ourValues": "Unsere Werte",
+    "valuesSubtitle": "Die Prinzipien, die alles leiten, was wir tun",
     "meetTeam": "Lernen Sie Unser Team Kennen",
+    "teamSubtitle": "Die leidenschaftlichen Profis hinter Ihrem Segelerlebnis",
     "certifications": "Zertifizierungen & Auszeichnungen",
+    "certificationsSubtitle": "Unser Engagement für Exzellenz wird von führenden Organisationen anerkannt",
     "readyToJoin": "Bereit, Teil Unserer Geschichte zu Werden?",
-    "joinCommunity": "Werden Sie Teil unserer Segelgemeinschaft und schaffen Sie Ihre eigenen unvergesslichen Erinnerungen auf dem Gardasee."
+    "joinCommunity": "Werden Sie Teil unserer Segelgemeinschaft und schaffen Sie Ihre eigenen unvergesslichen Erinnerungen auf dem Gardasee.",
+    "storyDescription": "Was als Leidenschaftsprojekt einer Gruppe von Segelenthusiasten begann, ist zum führenden Anbieter von Yacht-Rennerlebnissen am Gardasee gewachsen. Unsere Reise begann 2009, als Gründer Marco Benedetti beschloss, seine Liebe zum Wettkampfsegeln mit Besuchern aus aller Welt zu teilen.",
+    "beginningDescription": "Der Gardasee war schon immer ein Paradies für Segler, mit seinen konstanten Winden und der atemberaubenden Alpenkulisse. Marco, ein lebenslanger Segler und ehemaliger Wettkampffahrer, erkannte, dass viele Besucher des Sees authentische Yacht-Rennen erleben wollten, aber nicht die Gelegenheit dazu hatten.",
+    "journeyDescription1": "Mit einer einzigen Yacht und einem Traum beginnend, bot Marco personalisierte Segelerlebnisse an, die professionelle Anleitung mit dem Nervenkitzel des Wettkampfsegelns kombinierten. Die Nachricht über diese einzigartigen Abenteuer, die es absoluten Anfängern ermöglichten, die Aufregung von Yacht-Rennen zu erleben, verbreitete sich schnell.",
+    "journeyDescription2": "Heute betreiben wir eine Flotte moderner Renn-Yachten und haben über 2.000 Gäste aus mehr als 30 Ländern begrüßt, die alle mit unvergesslichen Erinnerungen und einer neuen Wertschätzung für den Segelsport abreisen.",
+    "missionVision": "Unsere Mission & Vision",
+    "mission": "Mission",
+    "missionDescription": "Authentische, sichere und unvergessliche Yacht-Rennerlebnisse zu bieten, die eine lebenslange Liebe zum Segeln inspirieren und dabei die natürliche Schönheit des Gardasees zeigen.",
+    "vision": "Vision",
+    "visionDescription": "Als Europas führendes Ziel für Yacht-Rennerlebnisse anerkannt zu werden, wo jeder Gast als selbstbewusster Segler mit Erinnerungen abreist, die ein Leben lang halten.",
+    "milestone2009": "Gegründet vom leidenschaftlichen Segler Marco Benedetti mit einer einzigen Yacht und dem Traum, authentische Rennerlebnisse zu teilen",
+    "milestone2012Title": "Erste 1000 Gäste",
+    "milestone2012": "Erreichten unseren ersten wichtigen Meilenstein zufriedener Kunden aus ganz Europa",
+    "milestone2015Title": "RYA-Zertifizierung",
+    "milestone2015": "Erhielten die Zertifizierung der Royal Yachting Association für professionelle Segelausbildung",
+    "milestone2018Title": "Flottenerweiterung",
+    "milestone2018": "Fügten moderne Bavaria-Renn-Yachten hinzu, um das ultimative Segelerlebnis zu bieten",
+    "milestone2020Title": "Digitale Innovation",
+    "milestone2020": "Starteten Online-Buchungsplattform und digitale Gästeservices",
+    "milestone2024Title": "2000+ Glückliche Segler",
+    "milestone2024": "Feiern über 2000 zufriedene Kunden aus 30+ Ländern weltweit",
+    "values": {
+      "safety": {
+        "title": "Sicherheit Zuerst",
+        "description": "Ihre Sicherheit ist unsere absolute Priorität. Wir halten die höchsten Sicherheitsstandards ein, verwenden nur zertifizierte Ausrüstung und führen gründliche Einweisungen vor jedem Erlebnis durch."
+      },
+      "passion": {
+        "title": "Leidenschaft für das Segeln",
+        "description": "Wir leben und atmen Segeln. Unsere echte Leidenschaft für den Sport treibt alles an, was wir tun, von der Qualität der Ausbildung bis zur Schaffung unvergesslicher Erinnerungen."
+      },
+      "inclusive": {
+        "title": "Inklusive Exzellenz",
+        "description": "Ob Sie ein kompletter Anfänger oder erfahrener Segler sind, jeder ist willkommen. Wir passen jedes Erlebnis an, um sicherzustellen, dass sich jeder selbstbewusst und einbezogen fühlt."
+      },
+      "authentic": {
+        "title": "Authentische Rennen",
+        "description": "Wir bieten echte Yacht-Rennerlebnisse mit echter Konkurrenz, offizieller Zeitmessung und bedeutungsvoller Anerkennung von Leistungen."
+      },
+      "innovation": {
+        "title": "Kontinuierliche Innovation",
+        "description": "Wir entwickeln unsere Dienstleistungen ständig weiter und integrieren die neuesten Segeltechniken, Sicherheitsprotokolle und Innovationen im Gästeerlebnis."
+      }
+    },
+    "team": {
+      "marco": {
+        "role": "Gründer & Hauptskipper",
+        "description": "RYA Yachtmaster mit über 20 Jahren Segelerfahrung auf dem Gardasee. Ehemaliger Wettkampffahrer, der zum leidenschaftlichen Ausbilder wurde.",
+        "specialties": {
+          "strategy": "Rennstrategie",
+          "safety": "Sicherheitsmanagement",
+          "experience": "Gästeerlebnis"
+        }
+      },
+      "sofia": {
+        "role": "Betriebsleiterin",
+        "description": "Sorgt dafür, dass jeder Gast ein unvergessliches Erlebnis hat. Mehrsprachige Gastfreundschaftsexpertin mit Leidenschaft für das Segeln.",
+        "specialties": {
+          "relations": "Gästebeziehungen",
+          "quality": "Qualitätssicherung",
+          "coordination": "Teamkoordination"
+        }
+      },
+      "andreas": {
+        "role": "Senior Skipper",
+        "description": "Ehemaliger Olympia-Segler und zertifizierter Segellehrer. Bringt Weltklasse-Rennexpertise in jedes Erlebnis ein.",
+        "specialties": {
+          "techniques": "Fortgeschrittene Techniken",
+          "training": "Wettkampftraining",
+          "weather": "Wetteranalyse"
+        }
+      },
+      "elena": {
+        "role": "Sicherheitsbeauftragte & Ausbilderin",
+        "description": "Zertifizierte Meeressicherheitsexpertin und Segellehrerin. Stellt sicher, dass alle Erlebnisse den höchsten Sicherheitsstandards entsprechen.",
+        "specialties": {
+          "protocols": "Sicherheitsprotokolle",
+          "response": "Notfallreaktion",
+          "equipment": "Ausrüstungsmanagement"
+        }
+      }
+    },
+    "achievements": {
+      "ryaCertified": {
+        "title": "RYA-Zertifizierte Exzellenz",
+        "description": "Royal Yachting Association Zertifizierung für professionelle Segelausbildung"
+      },
+      "guestRating": {
+        "title": "4.9★ Gästebewertung",
+        "description": "Konstant hohe Bewertungen auf allen Bewertungsplattformen"
+      },
+      "safetyRecord": {
+        "title": "Null Sicherheitsvorfälle",
+        "description": "15 Jahre Betrieb mit perfekter Sicherheitsbilanz"
+      },
+      "satisfiedGuests": {
+        "title": "2000+ Zufriedene Gäste",
+        "description": "Segler aus über 30 Ländern weltweit begrüßt"
+      },
+      "industryRecognition": {
+        "title": "Branchenanerkennung",
+        "description": "Vorgestellt in führenden Segel- und Reisepublikationen"
+      },
+      "mediaExcellence": {
+        "title": "Medienexzellenz",
+        "description": "Professionelle Fotografie- und Videografie-Services inklusive"
+      },
+      "ongoing": "Laufend"
+    },
+    "whatSetsUsApart": "Was Uns Auszeichnet",
+    "whyChooseUs": "Warum Tausende von Seglern Garda Racing für ihr Gardasee-Erlebnis wählen",
+    "differentiators": {
+      "authentic": {
+        "title": "Authentisches Rennerlebnis",
+        "description": "Im Gegensatz zu touristischen Segelausflügen bieten wir echte Yacht-Rennen mit offizieller Zeitmessung, Wertung und Wettkampfelementen, die echte Aufregung schaffen."
+      },
+      "professional": {
+        "title": "Professionelle Ausbildung",
+        "description": "Unsere RYA-zertifizierten Skipper bieten Weltklasse-Ausbildung und stellen sicher, dass Sie richtige Techniken lernen, während Sie Spaß haben."
+      },
+      "complete": {
+        "title": "Komplettes Erlebnispaket",
+        "description": "Alles inklusive: professionelle Fotos, Rennmedaillen, Zertifikate, Sicherheitsausrüstung und Expertenführung."
+      },
+      "location": {
+        "title": "Perfekte Lage",
+        "description": "Der Gardasee bietet ideale Segelbedingungen mit konstanten Thermikwinden und atemberaubender Alpenlandschaft."
+      },
+      "multilingual": {
+        "title": "Mehrsprachiges Team",
+        "description": "Unser Team spricht Englisch, Italienisch, Deutsch und Russisch und gewährleistet klare Kommunikation und Komfort für alle Gäste."
+      },
+      "flexible": {
+        "title": "Flexibel & Zuverlässig",
+        "description": "Tägliche Abfahrten, Wettergarantien und flexible Buchungsrichtlinien machen die Planung Ihres Erlebnisses stressfrei."
+      }
+    }
   },
   "contact": {
     "title": "Kontaktieren Sie Uns",

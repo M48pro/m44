@@ -154,11 +154,150 @@
     "ourStory": "Nuestra Historia",
     "theBeginning": "El Comienzo",
     "ourJourney": "Nuestro Viaje",
+    "journeySubtitle": "Hitos clave en nuestra historia de 15 años de excelencia en navegación",
     "ourValues": "Nuestros Valores",
+    "valuesSubtitle": "Los principios que guían todo lo que hacemos",
     "meetTeam": "Conoce a Nuestro Equipo",
+    "teamSubtitle": "Los profesionales apasionados detrás de tu experiencia de navegación",
     "certifications": "Certificaciones y Reconocimientos",
+    "certificationsSubtitle": "Nuestro compromiso con la excelencia es reconocido por organizaciones líderes",
     "readyToJoin": "¿Listo para Unirte a Nuestra Historia?",
-    "joinCommunity": "Conviértete en parte de nuestra comunidad de vela y crea tus propios recuerdos inolvidables en el Lago de Garda."
+    "joinCommunity": "Conviértete en parte de nuestra comunidad de vela y crea tus propios recuerdos inolvidables en el Lago de Garda.",
+    "storyDescription": "Lo que comenzó como un proyecto de pasión de un grupo de entusiastas de la vela se ha convertido en el principal proveedor de experiencias de regatas de yate del Lago de Garda. Nuestro viaje comenzó en 2009 cuando el fundador Marco Benedetti decidió compartir su amor por la vela competitiva con visitantes de todo el mundo.",
+    "beginningDescription": "El Lago de Garda siempre ha sido un paraíso para los marineros, con sus vientos constantes y su impresionante telón de fondo alpino. Marco, un marinero de toda la vida y ex corredor competitivo, reconoció que muchos visitantes del lago querían experimentar auténticas regatas de yate pero carecían de la oportunidad.",
+    "journeyDescription1": "Comenzando con un solo yate y un sueño, Marco comenzó a ofrecer experiencias de navegación personalizadas que combinaban instrucción profesional con la emoción de las carreras competitivas. La noticia se extendió rápidamente sobre estas aventuras únicas que permitían a principiantes completos experimentar la emoción de las regatas de yate.",
+    "journeyDescription2": "Hoy, operamos una flota de yates de regata modernos y hemos recibido a más de 2,000 invitados de más de 30 países, cada uno saliendo con recuerdos inolvidables y una nueva apreciación por el deporte de la vela.",
+    "missionVision": "Nuestra Misión y Visión",
+    "mission": "Misión",
+    "missionDescription": "Proporcionar experiencias de regatas de yate auténticas, seguras e inolvidables que inspiren un amor de por vida por la navegación mientras mostramos la belleza natural del Lago de Garda.",
+    "vision": "Visión",
+    "visionDescription": "Ser reconocidos como el principal destino de Europa para experiencias de regatas de yate, donde cada invitado se va como un marinero confiado con recuerdos que duran toda la vida.",
+    "milestone2009": "Fundado por el apasionado navegante Marco Benedetti con un solo yate y el sueño de compartir experiencias de regata auténticas",
+    "milestone2012Title": "Primeros 1000 Invitados",
+    "milestone2012": "Alcanzamos nuestro primer hito importante de clientes satisfechos de toda Europa",
+    "milestone2015Title": "Certificación RYA",
+    "milestone2015": "Logramos la certificación de la Royal Yachting Association para instrucción profesional de vela",
+    "milestone2018Title": "Expansión de la Flota",
+    "milestone2018": "Añadimos yates de regata Bavaria modernos para proporcionar la experiencia de navegación definitiva",
+    "milestone2020Title": "Innovación Digital",
+    "milestone2020": "Lanzamos plataforma de reservas en línea y servicios digitales para invitados",
+    "milestone2024Title": "2000+ Navegantes Felices",
+    "milestone2024": "Celebrando más de 2000 clientes satisfechos de 30+ países en todo el mundo",
+    "values": {
+      "safety": {
+        "title": "Seguridad Primero",
+        "description": "Tu seguridad es nuestra prioridad absoluta. Mantenemos los más altos estándares de seguridad, usamos solo equipo certificado y realizamos briefings exhaustivos antes de cada experiencia."
+      },
+      "passion": {
+        "title": "Pasión por la Vela",
+        "description": "Vivimos y respiramos vela. Nuestra genuina pasión por el deporte impulsa todo lo que hacemos, desde la calidad de la instrucción hasta la creación de recuerdos inolvidables."
+      },
+      "inclusive": {
+        "title": "Excelencia Inclusiva",
+        "description": "Ya seas un principiante completo o un navegante experimentado, todos son bienvenidos. Adaptamos cada experiencia para asegurar que todos se sientan confiados y comprometidos."
+      },
+      "authentic": {
+        "title": "Regatas Auténticas",
+        "description": "Proporcionamos experiencias genuinas de regatas de yate con competencia real, cronometraje oficial y reconocimiento significativo del logro."
+      },
+      "innovation": {
+        "title": "Innovación Continua",
+        "description": "Evolucionamos constantemente nuestros servicios, incorporando las últimas técnicas de navegación, protocolos de seguridad e innovaciones en la experiencia del invitado."
+      }
+    },
+    "team": {
+      "marco": {
+        "role": "Fundador y Patrón Principal",
+        "description": "RYA Yachtmaster con más de 20 años de experiencia en navegación en el Lago de Garda. Ex corredor competitivo convertido en instructor apasionado.",
+        "specialties": {
+          "strategy": "Estrategia de Regata",
+          "safety": "Gestión de Seguridad",
+          "experience": "Experiencia del Invitado"
+        }
+      },
+      "sofia": {
+        "role": "Gerente de Operaciones",
+        "description": "Asegura que cada invitado tenga una experiencia inolvidable. Experta en hospitalidad multilingüe con pasión por la vela.",
+        "specialties": {
+          "relations": "Relaciones con Invitados",
+          "quality": "Garantía de Calidad",
+          "coordination": "Coordinación de Equipo"
+        }
+      },
+      "andreas": {
+        "role": "Patrón Senior",
+        "description": "Ex navegante olímpico e instructor de vela certificado. Aporta experiencia de regata de clase mundial a cada experiencia.",
+        "specialties": {
+          "techniques": "Técnicas Avanzadas",
+          "training": "Entrenamiento Competitivo",
+          "weather": "Análisis Meteorológico"
+        }
+      },
+      "elena": {
+        "role": "Oficial de Seguridad e Instructora",
+        "description": "Experta certificada en seguridad marina e instructora de vela. Asegura que todas las experiencias cumplan con los más altos estándares de seguridad.",
+        "specialties": {
+          "protocols": "Protocolos de Seguridad",
+          "response": "Respuesta de Emergencia",
+          "equipment": "Gestión de Equipamiento"
+        }
+      }
+    },
+    "achievements": {
+      "ryaCertified": {
+        "title": "Excelencia Certificada RYA",
+        "description": "Certificación de la Royal Yachting Association para instrucción profesional de vela"
+      },
+      "guestRating": {
+        "title": "Calificación de Invitados 4.9★",
+        "description": "Calificaciones consistentemente altas en todas las plataformas de reseñas"
+      },
+      "safetyRecord": {
+        "title": "Cero Incidentes de Seguridad",
+        "description": "15 años de operaciones con un historial de seguridad perfecto"
+      },
+      "satisfiedGuests": {
+        "title": "2000+ Invitados Satisfechos",
+        "description": "Recibimos navegantes de más de 30 países en todo el mundo"
+      },
+      "industryRecognition": {
+        "title": "Reconocimiento de la Industria",
+        "description": "Destacados en publicaciones líderes de vela y viajes"
+      },
+      "mediaExcellence": {
+        "title": "Excelencia en Medios",
+        "description": "Servicios profesionales de fotografía y videografía incluidos"
+      },
+      "ongoing": "En curso"
+    },
+    "whatSetsUsApart": "Lo Que Nos Distingue",
+    "whyChooseUs": "Por qué miles de navegantes eligen Garda Racing para su experiencia en el Lago de Garda",
+    "differentiators": {
+      "authentic": {
+        "title": "Experiencia de Regata Auténtica",
+        "description": "A diferencia de los viajes turísticos de vela, ofrecemos regatas reales de yate con cronometraje oficial, puntuación y elementos competitivos que crean emoción genuina."
+      },
+      "professional": {
+        "title": "Instrucción Profesional",
+        "description": "Nuestros patrones certificados por RYA proporcionan instrucción de clase mundial, asegurando que aprendas técnicas adecuadas mientras te diviertes."
+      },
+      "complete": {
+        "title": "Paquete de Experiencia Completo",
+        "description": "Todo incluido: fotos profesionales, medallas de regata, certificados, equipo de seguridad y guía experta."
+      },
+      "location": {
+        "title": "Ubicación Perfecta",
+        "description": "El Lago de Garda ofrece condiciones ideales para navegar con vientos térmicos constantes y un impresionante paisaje alpino."
+      },
+      "multilingual": {
+        "title": "Equipo Multilingüe",
+        "description": "Nuestro equipo habla inglés, italiano, alemán y ruso, asegurando comunicación clara y comodidad para todos los invitados."
+      },
+      "flexible": {
+        "title": "Flexible y Confiable",
+        "description": "Salidas diarias, garantías climáticas y políticas de reserva flexibles hacen que planificar tu experiencia sea libre de estrés."
+      }
+    }
   },
   "contact": {
     "title": "Contáctanos",
