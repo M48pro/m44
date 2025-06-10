@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import toast, { Toaster } from 'react-hot-toast';
-import { Calendar, Users, CreditCard, Shield, Clock, CheckCircle, AlertCircle, Mail } from 'lucide-react';
+import { Calendar, Users, CreditCard, Shield, Clock, CheckCircle, AlertCircle, Mail, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import { bookingService, type BookingFormData } from '../services/booking';
