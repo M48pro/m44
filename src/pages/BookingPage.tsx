@@ -627,4 +627,19 @@ const BookingPage: React.FC = () => {
                   </a>
                   <a
                     href="mailto:info@gardaracing.com"
-                    className="flex items-center space-x-3 text-primary-
+                    className="flex items-center space-x-3 text-primary-600 hover:text-primary-700 transition-colors duration-300"
+                  >
+                    <Mail className="h-4 w-4" />
+                    <span>info@gardaracing.com</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default BookingPage;
