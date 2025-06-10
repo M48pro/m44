@@ -61,7 +61,7 @@ export const crmService = {
           })
           .eq('id', existingClient.id)
           .select()
-          .single();
+          .maybeSingle();
 
         if (updateError) {
           console.error('Error updating client in CRM:', updateError);
@@ -69,6 +69,11 @@ export const crmService = {
         }
 
         console.log('Client updated in CRM:', updatedClient);
+        
+        if (!updatedClient) {
+          console.error('Client update failed - no record found');
+          return null;
+        }
         return updatedClient;
       } else {
         // Create new client with portal access
@@ -166,7 +171,7 @@ export const crmService = {
         .from('clients')
         .select('*')
         .eq('id', clientId)
-        .single();
+        .maybeSingle();
 
       if (error) {
         console.error('Error fetching client for portal access:', error);
@@ -174,6 +179,11 @@ export const crmService = {
       }
 
       // Generate or use existing token
+      if (!client) {
+        console.error('Client not found for portal access generation');
+        return null;
+      }
+      
       const token = client.portal_token || this.generatePortalToken();
       
       // Update client with portal access if needed
