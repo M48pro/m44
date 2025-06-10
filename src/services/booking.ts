@@ -16,6 +16,7 @@ export interface BookingFormData {
   agreeMarketing: boolean;
   paymentMethod?: string;
   depositAmount?: number;
+  paymentSucceeded?: boolean;
 }
 
 export const bookingService = {
