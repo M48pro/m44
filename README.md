@@ -1,164 +1,196 @@
-# Garda Racing Yacht Club Website
+# Full-Stack Application with Supabase
 
-A modern, multilingual website for yacht racing experiences on Lake Garda, built with React, TypeScript, and Tailwind CSS.
-
-## 🏗️ Project Structure
-
-```
-src/
-├── components/           # Reusable UI components
-│   ├── ui/              # Basic UI components (Button, Input, Card, Modal)
-│   ├── layout/          # Layout components (Header, Footer)
-│   ├── forms/           # Form-specific components
-│   └── ...              # Other shared components
-├── features/            # Feature-specific components and logic
-│   ├── booking/         # Booking system components
-│   ├── chat/            # Chat widget components
-│   ├── testimonials/    # Testimonials components
-│   └── gallery/         # Gallery components
-├── pages/               # Page components
-├── services/            # API services and data fetching
-├── hooks/               # Custom React hooks
-├── utils/               # Utility functions
-├── types/               # TypeScript type definitions
-├── constants/           # Application constants
-├── i18n/                # Internationalization setup and translations
-└── ...
-```
+A modern full-stack application built with React, TypeScript, Tailwind CSS, and Supabase, featuring real-time data handling, file storage, and event processing.
 
 ## 🚀 Features
 
-- **Multilingual Support**: 6 languages (EN, IT, DE, FR, ES, RU)
-- **Responsive Design**: Mobile-first approach with Tailwind CSS
-- **Modern UI Components**: Reusable component library
-- **Booking System**: Complete booking flow with Supabase integration
-- **Chat Widget**: Real-time customer support
-- **SEO Optimized**: Meta tags, structured data, sitemap
-- **Performance**: Lazy loading, code splitting, optimized images
+### Real-time Data Handling
+- Supabase Realtime Subscriptions for live data updates
+- Connection state management and reconnection logic
+- Table-specific subscriptions with filtering options
+
+### File Storage
+- Supabase Storage integration for file management
+- Secure file upload/download functionality
+- File type validation and size restrictions
+- Bucket policies and permissions
+
+### Event Handling
+- Database triggers for automated actions
+- Webhook integration for external service communication
+- Comprehensive error handling and logging
+- Event-driven architecture
+
+### Deployment Configuration
+- Frontend deployment on Netlify
+- Backend serverless functions on Vercel
+- Environment variable management
+- Automated build and deployment pipelines
 
 ## 🛠️ Technology Stack
 
-- **Frontend**: React 18, TypeScript, Tailwind CSS
-- **Backend**: Supabase (PostgreSQL, Auth, Storage)
-- **Internationalization**: react-i18next
-- **Forms**: react-hook-form
-- **Routing**: React Router v6
-- **Build Tool**: Vite
-- **Deployment**: Netlify
+- **Frontend**: React, TypeScript, Tailwind CSS, Vite
+- **Backend**: Supabase, Netlify Functions, Vercel Serverless Functions
+- **Database**: PostgreSQL (via Supabase)
+- **Storage**: Supabase Storage
+- **Real-time**: Supabase Realtime
+- **Authentication**: Supabase Auth
+- **Deployment**: Netlify (frontend), Vercel (functions)
 
-## 📁 Directory Breakdown
+## 📁 Project Structure
 
-### `/components`
-- **`/ui`**: Basic reusable components (Button, Input, Card, Modal)
-- **`/layout`**: Layout-specific components (Header, Footer)
-- **`/forms`**: Form-related components
-
-### `/features`
-- **`/booking`**: Booking form, booking summary, payment components
-- **`/chat`**: Chat widget and related functionality
-- **`/testimonials`**: Customer testimonials display
-- **`/gallery`**: Image gallery and media components
-
-### `/services`
-- **`supabase.ts`**: Database client and type definitions
-- **`booking.ts`**: Booking-related API calls
-- **`chat.ts`**: Chat service and message handling
-- **`cms.ts`**: Content management system integration
-
-### `/hooks`
-- **`useLanguage.ts`**: Language switching and formatting utilities
-- Custom hooks for specific functionality
-
-### `/utils`
-- **`index.ts`**: Common utility functions (formatting, validation, etc.)
-
-### `/types`
-- **`index.ts`**: TypeScript type definitions for the entire application
-
-### `/constants`
-- **`index.ts`**: Application constants (company info, pricing, social links)
-
-## 🌍 Internationalization
-
-The project supports 6 languages with complete translations:
-- English (EN) - Default
-- Italian (IT)
-- German (DE)
-- French (FR)
-- Spanish (ES)
-- Russian (RU)
-
-Translation files are located in:
-- `src/i18n/locales/` - Source translations
-- `public/locales/` - Public translations for lazy loading
-
-## 🎨 Design System
-
-The project uses a consistent design system with:
-- **Colors**: Primary (red), secondary (blue), accent (gold)
-- **Typography**: Inter (sans-serif), Playfair Display (serif)
-- **Spacing**: 8px grid system
-- **Components**: Reusable UI component library
-
-## 📱 Responsive Design
-
-- **Mobile First**: Designed for mobile devices first
-- **Breakpoints**: sm (640px), md (768px), lg (1024px), xl (1280px)
-- **Touch Friendly**: Minimum 44px touch targets
-
-## 🔧 Development
-
-```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
+```
+/
+├── src/                      # Frontend source code
+│   ├── components/           # React components
+│   │   ├── ui/               # UI components
+│   │   ├── FileUploader.tsx  # File upload component
+│   │   ├── FileManager.tsx   # File management component
+│   │   ├── RealtimeStatus.tsx # Realtime connection status
+│   │   └── RealtimeData.tsx  # Real-time data display component
+│   ├── hooks/                # Custom React hooks
+│   │   ├── useRealtime.ts    # Hook for realtime subscriptions
+│   │   ├── useStorage.ts     # Hook for file storage operations
+│   │   └── useEvents.ts      # Hook for event handling
+│   ├── services/             # Service layer
+│   │   ├── supabase.ts       # Supabase client configuration
+│   │   ├── realtime.ts       # Realtime service
+│   │   ├── storage.ts        # Storage service
+│   │   └── events.ts         # Events service
+│   └── pages/                # Page components
+├── netlify/                  # Netlify functions
+│   └── functions/            # Serverless functions
+│       ├── webhook.ts        # Main webhook handler
+│       ├── storage-webhook.ts # Storage event handler
+│       └── realtime-webhook.ts # Realtime event handler
+├── supabase/                 # Supabase configuration
+│   └── migrations/           # Database migrations
+├── public/                   # Static assets
+├── netlify.toml              # Netlify configuration
+├── vercel.json               # Vercel configuration
+└── package.json              # Project dependencies
 ```
 
-## 📊 Performance
+## 🚀 Getting Started
 
-- **Lighthouse Score**: 90+ across all metrics
-- **Core Web Vitals**: Optimized for LCP, FID, CLS
-- **Bundle Size**: Optimized with code splitting and tree shaking
-- **Images**: WebP format with fallbacks
+### Prerequisites
 
-## 🔒 Security
+- Node.js (v18 or later)
+- npm or yarn
+- Supabase account
+- Netlify account
+- Vercel account
 
-- **Environment Variables**: Secure API key management
-- **HTTPS**: SSL/TLS encryption
-- **CORS**: Proper cross-origin resource sharing
-- **Input Validation**: Client and server-side validation
+### Installation
 
-## 📈 Analytics & SEO
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/fullstack-supabase-app.git
+   cd fullstack-supabase-app
+   ```
 
-- **Meta Tags**: Dynamic meta tags for each page
-- **Structured Data**: JSON-LD for rich snippets
-- **Sitemap**: Auto-generated XML sitemap
-- **Open Graph**: Social media sharing optimization
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## 🚀 Deployment
+3. Create a `.env` file based on `.env.example`:
+   ```bash
+   cp .env.example .env
+   ```
 
-The project is configured for deployment on Netlify with:
-- **Build Command**: `npm run build`
-- **Publish Directory**: `dist`
-- **Environment Variables**: Configured in Netlify dashboard
-- **Redirects**: SPA routing support
+4. Update the environment variables in the `.env` file with your Supabase credentials.
 
-## 🤝 Contributing
+5. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-1. Follow the established directory structure
-2. Use TypeScript for all new components
-3. Add translations for all user-facing text
-4. Write responsive, accessible components
-5. Test across different devices and browsers
+## 🔄 Real-time Data Handling
+
+The application uses Supabase's Realtime feature to provide live updates:
+
+```typescript
+// Subscribe to table changes
+const subscriptionId = realtimeService.subscribeToTable(
+  'bookings',
+  (payload) => {
+    console.log('Booking updated:', payload);
+    // Update UI with new data
+  },
+  {
+    event: 'UPDATE', // Listen only for updates
+    schema: 'public'
+  }
+);
+
+// Unsubscribe when done
+realtimeService.unsubscribe(subscriptionId);
+```
+
+## 📦 File Storage
+
+File management is handled through Supabase Storage:
+
+```typescript
+// Upload a file
+const result = await storageService.uploadFile(file, {
+  bucket: 'profile-photos',
+  path: `user-${userId}/${file.name}`,
+  metadata: {
+    userId,
+    uploadedAt: new Date().toISOString()
+  }
+});
+
+// Get a public URL
+const url = storageService.getPublicUrl('profile-photos', filePath);
+```
+
+## 🔔 Event Handling
+
+The application uses an event-driven architecture:
+
+```typescript
+// Register event handler
+eventsService.on('booking_created', async (payload) => {
+  console.log('New booking created:', payload);
+  // Send notification, update stats, etc.
+});
+
+// Trigger event manually
+await eventsService.trigger('booking_created', bookingData);
+
+// Send webhook to external service
+await eventsService.sendWebhook('booking_created', bookingData);
+```
+
+## 🚢 Deployment
+
+### Frontend (Netlify)
+
+1. Connect your GitHub repository to Netlify
+2. Configure build settings:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+3. Add environment variables in the Netlify dashboard
+4. Enable automatic deployments
+
+### Backend (Vercel Functions)
+
+1. Connect your GitHub repository to Vercel
+2. Configure build settings in `vercel.json`
+3. Add environment variables in the Vercel dashboard
+4. Deploy the functions
+
+## 🔒 Security Best Practices
+
+- All sensitive operations are performed in serverless functions
+- Row Level Security (RLS) is enabled on all Supabase tables
+- File uploads are validated for type and size
+- Webhooks use secret keys for authentication
+- Environment variables are used for sensitive information
 
 ## 📄 License
 
-© 2024 Garda Racing Yacht Club. All rights reserved.
+This project is licensed under the MIT License - see the LICENSE file for details.
