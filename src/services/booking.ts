@@ -55,37 +55,65 @@ export const bookingService = {
 
       console.log('Creating booking with data:', bookingData);
 
-      const { data, error } = await supabase
+      // Create booking without trying to select related data immediately
+      const { data: bookingResult, error: bookingError } = await supabase
         .from('bookings')
         .insert(bookingData)
+        .select('*')
+        .single();
+
+      if (bookingError) {
+        console.error('Error creating booking:', bookingError);
+        toast.error(`Failed to create booking: ${bookingError.message}`);
+        return null;
+      }
+
+      console.log('Booking created successfully:', bookingResult);
+
+      // Step 4: Fetch the complete booking with related data
+      const { data: completeBooking, error: fetchError } = await supabase
+        .from('bookings')
         .select(`
           *,
           client:clients(*),
           yacht:yachts(id, name)
         `)
+        .eq('id', bookingResult.id)
         .single();
 
-      if (error) {
-        console.error('Error creating booking:', error);
-        toast.error(`Failed to create booking: ${error.message}`);
-        return null;
+      if (fetchError) {
+        console.error('Error fetching complete booking:', fetchError);
+        // Return basic booking data even if we can't fetch related data
+        const basicBooking = {
+          ...bookingResult,
+          client: client,
+          yacht: availableYacht
+        } as BookingWithClient;
+        
+        // Still update stats and send email
+        await this.updateClientStats(client.id, totalAmount);
+        if (availableYacht) {
+          await this.updateYachtStatus(availableYacht.id, 'booked', formData.bookingDate);
+        }
+        await this.sendConfirmationEmail(basicBooking, client);
+        
+        toast.success('Booking created successfully! Check your email for confirmation.');
+        return basicBooking;
       }
 
-      console.log('Booking created successfully:', data);
-
-      // Step 4: Update client's booking statistics
+      // Step 5: Update client's booking statistics
       await this.updateClientStats(client.id, totalAmount);
 
-      // Step 5: Update yacht status if assigned
+      // Step 6: Update yacht status if assigned
       if (availableYacht) {
         await this.updateYachtStatus(availableYacht.id, 'booked', formData.bookingDate);
       }
 
-      // Step 6: Send confirmation email
-      await this.sendConfirmationEmail(data, client);
+      // Step 7: Send confirmation email
+      await this.sendConfirmationEmail(completeBooking, client);
       
       toast.success('Booking created successfully! Check your email for confirmation.');
-      return data;
+      return completeBooking;
     } catch (error) {
       console.error('Error in createBooking:', error);
       toast.error('An unexpected error occurred. Please try again.');
@@ -103,16 +131,17 @@ export const bookingService = {
       console.log('Getting or creating client:', clientData);
       
       // First, try to find existing client by email
-      const { data: existingClient, error: findError } = await supabase
+      const { data: existingClients, error: findError } = await supabase
         .from('clients')
         .select('*')
-        .eq('email', clientData.email)
-        .maybeSingle(); // Use maybeSingle instead of single to avoid error when no rows found
+        .eq('email', clientData.email);
 
       if (findError) {
         console.error('Error finding client:', findError);
         // Continue to create new client if find fails
       }
+
+      const existingClient = existingClients && existingClients.length > 0 ? existingClients[0] : null;
 
       if (existingClient) {
         console.log('Found existing client:', existingClient);
@@ -129,18 +158,17 @@ export const bookingService = {
         }
 
         if (Object.keys(updatedData).length > 0) {
-          const { data: updated, error: updateError } = await supabase
+          const { data: updatedClients, error: updateError } = await supabase
             .from('clients')
             .update(updatedData)
             .eq('id', existingClient.id)
-            .select()
-            .maybeSingle(); // Use maybeSingle instead of single
+            .select('*');
 
           if (updateError) {
             console.error('Error updating client:', updateError);
             return existingClient; // Return existing client even if update fails
           }
-          return updated || existingClient; // Return updated client or fallback to existing
+          return updatedClients && updatedClients.length > 0 ? updatedClients[0] : existingClient;
         }
 
         return existingClient;
@@ -160,17 +188,17 @@ export const bookingService = {
 
       console.log('Creating new client:', newClientData);
 
-      const { data: newClient, error: createError } = await supabase
+      const { data: newClients, error: createError } = await supabase
         .from('clients')
         .insert(newClientData)
-        .select()
-        .single();
+        .select('*');
 
       if (createError) {
         console.error('Error creating client:', createError);
         return null;
       }
 
+      const newClient = newClients && newClients.length > 0 ? newClients[0] : null;
       console.log('New client created:', newClient);
       return newClient;
     } catch (error) {
@@ -181,19 +209,18 @@ export const bookingService = {
 
   async getAvailableYacht(bookingDate: string): Promise<{ id: string; name: string } | null> {
     try {
-      const { data, error } = await supabase
+      const { data: yachts, error } = await supabase
         .from('yachts')
         .select('id, name')
         .eq('status', 'available')
-        .limit(1)
-        .maybeSingle(); // Use maybeSingle instead of single
+        .limit(1);
 
       if (error) {
         console.log('No available yacht found or error:', error);
         return null;
       }
 
-      return data;
+      return yachts && yachts.length > 0 ? yachts[0] : null;
     } catch (error) {
       console.error('Error getting available yacht:', error);
       return null;
@@ -223,16 +250,17 @@ export const bookingService = {
   async updateClientStats(clientId: string, bookingAmount: number): Promise<void> {
     try {
       // Get current client stats
-      const { data: client, error: fetchError } = await supabase
+      const { data: clients, error: fetchError } = await supabase
         .from('clients')
         .select('total_bookings, total_spent')
-        .eq('id', clientId)
-        .maybeSingle(); // Use maybeSingle instead of single
+        .eq('id', clientId);
 
-      if (fetchError || !client) {
+      if (fetchError || !clients || clients.length === 0) {
         console.error('Error fetching client for stats update:', fetchError);
         return;
       }
+
+      const client = clients[0];
 
       // Update stats
       const { error: updateError } = await supabase
@@ -255,22 +283,21 @@ export const bookingService = {
 
   async getBooking(id: string): Promise<BookingWithClient | null> {
     try {
-      const { data, error } = await supabase
+      const { data: bookings, error } = await supabase
         .from('bookings')
         .select(`
           *,
           client:clients(*),
           yacht:yachts(id, name)
         `)
-        .eq('id', id)
-        .maybeSingle(); // Use maybeSingle instead of single
+        .eq('id', id);
 
       if (error) {
         console.error('Error fetching booking:', error);
         return null;
       }
 
-      return data;
+      return bookings && bookings.length > 0 ? bookings[0] : null;
     } catch (error) {
       console.error('Error in getBooking:', error);
       return null;
