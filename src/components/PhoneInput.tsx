@@ -18,9 +18,12 @@ interface PhoneInputProps {
 // Популярные страны для отображения в начале списка
 const POPULAR_COUNTRIES = ['US', 'GB', 'DE', 'FR', 'IT', 'ES', 'RU', 'UA', 'PL', 'NL', 'AT', 'CH'];
 
+// Define supported language codes
+type SupportedLanguageCode = 'en' | 'ru' | 'de' | 'fr' | 'it' | 'es';
+
 // Получение названий стран на разных языках
 const getCountryName = (countryCode: string, language: string): string => {
-  const countryNames: Record<string, Record<string, string>> = {
+  const countryNames: Record<string, Record<SupportedLanguageCode, string>> = {
     'US': { en: 'United States', ru: 'США', de: 'Vereinigte Staaten', fr: 'États-Unis', it: 'Stati Uniti', es: 'Estados Unidos' },
     'GB': { en: 'United Kingdom', ru: 'Великобритания', de: 'Vereinigtes Königreich', fr: 'Royaume-Uni', it: 'Regno Unito', es: 'Reino Unido' },
     'DE': { en: 'Germany', ru: 'Германия', de: 'Deutschland', fr: 'Allemagne', it: 'Germania', es: 'Alemania' },
@@ -256,7 +259,7 @@ const getCountryName = (countryCode: string, language: string): string => {
   };
 
   // Получаем название страны на нужном языке или на английском, если перевод отсутствует
-  const langKey = language.split('-')[0] as keyof typeof countryNames[typeof countryCode];
+  const langKey = language.split('-')[0] as SupportedLanguageCode;
   return countryNames[countryCode]?.[langKey] || countryNames[countryCode]?.en || countryCode;
 };
 
