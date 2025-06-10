@@ -16,7 +16,7 @@ const BookingPage: React.FC = () => {
   const [participants, setParticipants] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<BookingFormData>({
+  const { register, handleSubmit, watch, control, formState: { errors } } = useForm<BookingFormData>({
     defaultValues: {
       participants: 1,
       agreeTerms: false,
