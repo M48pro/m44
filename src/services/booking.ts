@@ -345,10 +345,9 @@ export const bookingService = {
       errors.push('Please enter a valid email address');
     }
 
-    // Phone validation (basic)
-    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
-    if (formData.phone && !phoneRegex.test(formData.phone.replace(/\s/g, ''))) {
-      errors.push('Please enter a valid phone number');
+    // Phone validation - теперь проверяем только наличие номера, так как валидация происходит в компоненте PhoneInput
+    if (!formData.phone) {
+      errors.push('Phone number is required');
     }
 
     // Date validation (must be in the future)

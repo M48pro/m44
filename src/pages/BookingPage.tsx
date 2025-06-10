@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import toast, { Toaster } from 'react-hot-toast';
-import { Calendar, Users, CreditCard, Shield, Clock, CheckCircle, AlertCircle, Phone, Mail } from 'lucide-react';
+import { Calendar, Users, CreditCard, Shield, Clock, CheckCircle, AlertCircle, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import { bookingService, type BookingFormData } from '../services/booking';
+import PhoneInput from '../components/PhoneInput';
 
 const BookingPage: React.FC = () => {
   const { t } = useTranslation();
@@ -277,15 +278,13 @@ const BookingPage: React.FC = () => {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-gray-900 mb-2">{t('booking.phone')} *</label>
-                      <input
-                        type="tel"
-                        {...register('phone', { required: t('forms.required') })}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                      <PhoneInput
+                        name="phone"
+                        control={control}
+                        label={t('booking.phone')}
+                        error={errors.phone}
+                        required
                       />
-                      {errors.phone && (
-                        <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>
-                      )}
                     </div>
 
                     <div>

@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import toast from 'react-hot-toast';
-import { MapPin, Phone, Mail, Clock, Send, MessageCircle, ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, MessageCircle, ChevronDown, ChevronUp, HelpCircle, User } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 import { supabase } from '../services/supabase';
+import PhoneInput from '../components/PhoneInput';
 
 interface ContactFormData {
   name: string;
   email: string;
+  phone?: string;
   subject: string;
   message: string;
 }
@@ -136,6 +138,17 @@ const ContactPage: React.FC = () => {
                 {errors.email && (
                   <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
                 )}
+              </div>
+
+              <div>
+                <label htmlFor="phone" className="block text-sm font-semibold text-gray-900 mb-2">
+                  {t('contact.phone')}
+                </label>
+                <PhoneInput
+                  name="phone"
+                  control={control}
+                  error={errors.phone}
+                />
               </div>
 
               <div>
