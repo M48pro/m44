@@ -1,13 +1,17 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+// Use the provided CRM credentials
+const supabaseUrl = 'https://czxfcjmbhqieljqlyoqq.supabase.co';
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN6eGZjam1iaHFpZWxqcWx5b3FxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk0ODEzNzAsImV4cCI6MjA2NTA1NzM3MH0.9ExttPAreL2yklm5rbEJAlQ-MVMzW8GCz0u4ffPdn8Y';
 
 if (!supabaseUrl || !supabaseAnonKey) {
   throw new Error('Missing Supabase environment variables');
 }
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+// Constants
+export const FRONTEND_URL = 'https://inquisitive-selkie-2bc7bf.netlify.app/';
 
 // Database types
 export interface Client {
@@ -21,6 +25,8 @@ export interface Client {
   total_spent?: number;
   last_booking?: string;
   lead_source?: string;
+  portal_access?: boolean;
+  portal_token?: string;
   location?: string;
   created_at: string;
   updated_at: string;

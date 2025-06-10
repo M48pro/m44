@@ -27,6 +27,7 @@ const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
 const TermsOfServicePage = lazy(() => import('./pages/TermsOfServicePage'));
 const CancellationPolicyPage = lazy(() => import('./pages/CancellationPolicyPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
+const ClientPortalPage = lazy(() => import('./pages/ClientPortalPage'));
 
 // Enhanced loading component with better UX
 const LoadingSpinner = () => (
@@ -139,6 +140,7 @@ function App() {
                   <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
                   <Route path="/terms-of-service" element={<TermsOfServicePage />} />
                   <Route path="/cancellation-policy" element={<CancellationPolicyPage />} />
+                  <Route path="/portal" element={<ClientPortalPage />} />
                   <Route path="*" element={<NotFoundPage />} />
                 </Routes>
               </LazyComponentWrapper>

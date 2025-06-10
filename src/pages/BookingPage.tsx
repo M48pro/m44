@@ -5,7 +5,8 @@ import toast, { Toaster } from 'react-hot-toast';
 import { Calendar, Users, CreditCard, Shield, Clock, CheckCircle, AlertCircle, Mail, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
-import { bookingService, type BookingFormData } from '../services/booking';
+import { bookingService, type BookingFormData } from '../services/booking'; 
+import { crmService } from '../services/crm';
 import PhoneInput from '../components/PhoneInput';
 
 const BookingPage: React.FC = () => {
@@ -15,6 +16,8 @@ const BookingPage: React.FC = () => {
   const [selectedTime, setSelectedTime] = useState('');
   const [participants, setParticipants] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [bookingComplete, setBookingComplete] = useState(false);
+  const [portalUrl, setPortalUrl] = useState<string | null>(null);
 
   const { register, handleSubmit, watch, control, formState: { errors } } = useForm<BookingFormData>({
     defaultValues: {
@@ -81,11 +84,17 @@ const BookingPage: React.FC = () => {
       const booking = await bookingService.createBooking(formData);
       if (booking) {
         toast.success(t('booking.success'));
-        // Reset form or redirect to confirmation page
-        setBookingStep(1);
-        setSelectedDate('');
-        setSelectedTime('');
-        setParticipants(1);
+        
+        // Generate client portal access
+        if (booking.client?.id) {
+          const portalAccess = await crmService.generateClientPortalAccess(booking.client.id);
+          if (portalAccess) {
+            setPortalUrl(portalAccess.url);
+          }
+        }
+        
+        // Mark booking as complete
+        setBookingComplete(true);
       }
     } catch (error) {
       console.error('Booking error:', error);
@@ -94,6 +103,25 @@ const BookingPage: React.FC = () => {
       setIsSubmitting(false);
     }
   };
+
+  // Booking success view
+  if (bookingComplete) {
+    return (
+      <div className="pt-20 min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
+          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <CheckCircle className="h-8 w-8 text-green-600" />
+          </div>
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">{t('booking.success')}</h1>
+          <p className="text-gray-600 mb-6">Check your email for booking confirmation and details.</p>
+          {portalUrl && (
+            <a href={portalUrl} target="_blank" rel="noopener norefferer" className="block w-full bg-primary-600 text-white py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors duration-300 mb-4">Access Your Client Portal</a>
+          )}
+          <Link to="/" className="text-primary-600 hover:text-primary-700 font-medium">Return to Home</Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
@@ -384,13 +412,14 @@ const BookingPage: React.FC = () => {
                     <div className="bg-green-50 p-6 rounded-lg">
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-1" />
-                        <div>
+                        <div className="flex-1">
                           <h3 className="font-semibold text-green-900 mb-2">{t('booking.whatHappensAfter')}</h3>
                           <ul className="text-green-800 text-sm space-y-1">
                             <li>• {t('booking.instantConfirmation')}</li>
                             <li>• {t('booking.meetingPoint')}</li>
                             <li>• {t('booking.weatherUpdates')}</li>
                             <li>• {t('booking.photosDelivered')}</li>
+                            <li className="font-semibold">• Access to your personal client portal</li>
                           </ul>
                         </div>
                       </div>
