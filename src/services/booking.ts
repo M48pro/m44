@@ -380,7 +380,22 @@ export const bookingService = {
     // Date validation (must be in the future)
     const selectedDate = new Date(formData.bookingDate);
     const today = new Date();
-    today.setHours(0, 0, 0, 0);
+   
+   // Normalize both dates to UTC midnight to avoid timezone issues
+   const selectedDateUTC = new Date(Date.UTC(
+     selectedDate.getFullYear(),
+     selectedDate.getMonth(),
+     selectedDate.getDate(),
+     0, 0, 0, 0
+   ));
+   
+   const todayUTC = new Date(Date.UTC(
+     today.getFullYear(),
+     today.getMonth(),
+     today.getDate(),
+     0, 0, 0, 0
+   ));
+   
     if (selectedDate < today) {
       errors.push('Booking date must be in the future');
     }
