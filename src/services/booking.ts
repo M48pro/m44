@@ -17,6 +17,8 @@ export interface BookingFormData {
 export const bookingService = {
   async createBooking(formData: BookingFormData): Promise<BookingWithClient | null> {
     try {
+      console.log('Creating booking with data:', formData);
+      
       const totalAmount = formData.participants * 199;
       
       // Step 1: Handle client - check if exists or create new one
@@ -28,13 +30,21 @@ export const bookingService = {
       });
 
       if (!client) {
+        console.error('Failed to create or retrieve client');
         toast.error('Failed to create or retrieve client information. Please try again.');
         return null;
       }
 
-      // Step 2: Create the booking with correct field mapping
+      console.log('Client created/retrieved:', client);
+
+      // Step 2: Get an available yacht (optional - we can assign later)
+      const availableYacht = await this.getAvailableYacht(formData.bookingDate);
+      console.log('Available yacht:', availableYacht);
+
+      // Step 3: Create the booking with correct field mapping
       const bookingData = {
         client_id: client.id,
+        yacht_id: availableYacht?.id || null, // Optional yacht assignment
         session_date: formData.bookingDate,
         session_time: formData.timeSlot,
         amount: totalAmount,
@@ -43,25 +53,35 @@ export const bookingService = {
         payment_status: 'pending' as const
       };
 
+      console.log('Creating booking with data:', bookingData);
+
       const { data, error } = await supabase
         .from('bookings')
         .insert(bookingData)
         .select(`
           *,
-          client:clients(*)
+          client:clients(*),
+          yacht:yachts(id, name)
         `)
         .single();
 
       if (error) {
         console.error('Error creating booking:', error);
-        toast.error('Failed to create booking. Please try again.');
+        toast.error(`Failed to create booking: ${error.message}`);
         return null;
       }
 
-      // Update client's booking statistics
+      console.log('Booking created successfully:', data);
+
+      // Step 4: Update client's booking statistics
       await this.updateClientStats(client.id, totalAmount);
 
-      // Send confirmation email
+      // Step 5: Update yacht status if assigned
+      if (availableYacht) {
+        await this.updateYachtStatus(availableYacht.id, 'booked', formData.bookingDate);
+      }
+
+      // Step 6: Send confirmation email
       await this.sendConfirmationEmail(data, client);
       
       toast.success('Booking created successfully! Check your email for confirmation.');
@@ -80,14 +100,23 @@ export const bookingService = {
     phone: string;
   }): Promise<Client | null> {
     try {
+      console.log('Getting or creating client:', clientData);
+      
       // First, try to find existing client by email
       const { data: existingClient, error: findError } = await supabase
         .from('clients')
         .select('*')
         .eq('email', clientData.email)
-        .single();
+        .maybeSingle(); // Use maybeSingle instead of single to avoid error when no rows found
 
-      if (existingClient && !findError) {
+      if (findError) {
+        console.error('Error finding client:', findError);
+        // Continue to create new client if find fails
+      }
+
+      if (existingClient) {
+        console.log('Found existing client:', existingClient);
+        
         // Update existing client with latest info if needed
         const updatedData: Partial<Client> = {};
         const fullName = `${clientData.firstName} ${clientData.lastName}`;
@@ -122,12 +151,14 @@ export const bookingService = {
         name: `${clientData.firstName} ${clientData.lastName}`,
         email: clientData.email,
         phone: clientData.phone,
-        language: 'en', // Default language, could be detected from browser
+        language: 'ru', // Set based on current UI language
         segment: 'new' as const,
         total_bookings: 0,
         total_spent: 0,
         lead_source: 'website'
       };
+
+      console.log('Creating new client:', newClientData);
 
       const { data: newClient, error: createError } = await supabase
         .from('clients')
@@ -140,10 +171,52 @@ export const bookingService = {
         return null;
       }
 
+      console.log('New client created:', newClient);
       return newClient;
     } catch (error) {
       console.error('Error in getOrCreateClient:', error);
       return null;
+    }
+  },
+
+  async getAvailableYacht(bookingDate: string): Promise<{ id: string; name: string } | null> {
+    try {
+      const { data, error } = await supabase
+        .from('yachts')
+        .select('id, name')
+        .eq('status', 'available')
+        .limit(1)
+        .single();
+
+      if (error) {
+        console.log('No available yacht found or error:', error);
+        return null;
+      }
+
+      return data;
+    } catch (error) {
+      console.error('Error getting available yacht:', error);
+      return null;
+    }
+  },
+
+  async updateYachtStatus(yachtId: string, status: string, nextBooking?: string): Promise<void> {
+    try {
+      const updateData: any = { status };
+      if (nextBooking) {
+        updateData.next_booking = nextBooking;
+      }
+
+      const { error } = await supabase
+        .from('yachts')
+        .update(updateData)
+        .eq('id', yachtId);
+
+      if (error) {
+        console.error('Error updating yacht status:', error);
+      }
+    } catch (error) {
+      console.error('Error in updateYachtStatus:', error);
     }
   },
 
@@ -242,6 +315,7 @@ export const bookingService = {
           <li>Date: ${new Date(booking.session_date).toLocaleDateString()}</li>
           <li>Time: ${booking.session_time}</li>
           <li>Total Amount: €${booking.amount}</li>
+          ${booking.yacht ? `<li>Yacht: ${booking.yacht.name}</li>` : ''}
         </ul>
         <p>We look forward to seeing you on Lake Garda!</p>
         <p>Best regards,<br>Garda Racing Yacht Club</p>
