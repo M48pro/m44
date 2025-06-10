@@ -26,6 +26,10 @@ const ContactPage = lazy(() => import('./pages/ContactPage'));
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
 const TermsOfServicePage = lazy(() => import('./pages/TermsOfServicePage'));
 const CancellationPolicyPage = lazy(() => import('./pages/CancellationPolicyPage'));
+const PricingPage = lazy(() => import('./pages/PricingPage'));
+const PaymentMethodsPage = lazy(() => import('./pages/account/PaymentMethodsPage'));
+const SubscriptionsPage = lazy(() => import('./pages/account/SubscriptionsPage'));
+const OrdersPage = lazy(() => import('./pages/account/OrdersPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 const ClientPortalPage = lazy(() => import('./pages/ClientPortalPage'));
 
@@ -140,6 +144,10 @@ function App() {
                   <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
                   <Route path="/terms-of-service" element={<TermsOfServicePage />} />
                   <Route path="/cancellation-policy" element={<CancellationPolicyPage />} />
+                  <Route path="/pricing" element={<PricingPage />} />
+                  <Route path="/account/payment-methods" element={<PaymentMethodsPage />} />
+                  <Route path="/account/subscriptions" element={<SubscriptionsPage />} />
+                  <Route path="/account/orders" element={<OrdersPage />} />
                   <Route path="/portal" element={<ClientPortalPage />} />
                   <Route path="*" element={<NotFoundPage />} />
                 </Routes>

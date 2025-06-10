@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import toast, { Toaster } from 'react-hot-toast';
-import { Calendar, Users, CreditCard, Shield, Clock, CheckCircle, AlertCircle, Mail, Phone } from 'lucide-react';
+import { Calendar, Users, CreditCard, Shield, Clock, CheckCircle, AlertCircle, Mail, Phone, Lock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
-import { bookingService, type BookingFormData } from '../services/booking'; 
+import { bookingService, type BookingFormData } from '../services/booking';
 import { crmService } from '../services/crm';
 import PhoneInput from '../components/PhoneInput';
+import { StripeProvider } from '../components/payment';
+import { stripeService } from '../services/stripe';
+import CheckoutForm from '../components/payment/CheckoutForm';
+import PaymentMethodSelector from '../components/payment/PaymentMethodSelector';
 
 const BookingPage: React.FC = () => {
   const { t } = useTranslation();
@@ -16,8 +20,12 @@ const BookingPage: React.FC = () => {
   const [selectedTime, setSelectedTime] = useState('');
   const [participants, setParticipants] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState('card');
   const [bookingComplete, setBookingComplete] = useState(false);
   const [portalUrl, setPortalUrl] = useState<string | null>(null);
+  const [clientSecret, setClientSecret] = useState<string | null>(null);
+  const [paymentProcessing, setPaymentProcessing] = useState(false);
+  const [paymentSucceeded, setPaymentSucceeded] = useState(false);
 
   const { register, handleSubmit, watch, control, formState: { errors } } = useForm<BookingFormData>({
     defaultValues: {
@@ -39,6 +47,38 @@ const BookingPage: React.FC = () => {
   const totalPrice = participants * 199;
   const deposit = Math.round(totalPrice * 0.3);
 
+  // Create payment intent when reaching payment step
+  useEffect(() => {
+    const createPaymentIntent = async () => {
+      if (bookingStep === 3 && !clientSecret && paymentMethod === 'card') {
+        try {
+          setPaymentProcessing(true);
+          const paymentAmount = paymentMethod === 'deposit' ? deposit : totalPrice;
+          
+          const { clientSecret } = await stripeService.createPaymentIntent({
+            amount: paymentAmount,
+            currency: 'eur',
+            description: `Booking for ${selectedDate} at ${selectedTime} - ${participants} participants`,
+            metadata: {
+              bookingDate: selectedDate,
+              timeSlot: selectedTime,
+              participants: participants.toString()
+            }
+          });
+          
+          setClientSecret(clientSecret);
+        } catch (error) {
+          console.error('Error creating payment intent:', error);
+          toast.error(t('payment.intentError', 'Failed to initialize payment. Please try again.'));
+        } finally {
+          setPaymentProcessing(false);
+        }
+      }
+    };
+    
+    createPaymentIntent();
+  }, [bookingStep, clientSecret, paymentMethod, deposit, totalPrice, selectedDate, selectedTime, participants, t]);
+
   const handleNextStep = () => {
     if (bookingStep < 3) {
       setBookingStep(bookingStep + 1);
@@ -57,9 +97,20 @@ const BookingPage: React.FC = () => {
         return selectedDate && selectedTime && participants > 0;
       case 2:
         return watchedValues.firstName && watchedValues.lastName && watchedValues.email && watchedValues.phone && watchedValues.agreeTerms;
+      case 3:
+        return paymentSucceeded || paymentMethod === 'deposit';
       default:
         return true;
     }
+  };
+
+  const handlePaymentSuccess = (paymentIntent: any) => {
+    setPaymentSucceeded(true);
+    toast.success(t('payment.success', 'Payment successful!'));
+  };
+
+  const handlePaymentError = (error: Error) => {
+    toast.error(error.message || t('payment.error', 'Payment failed. Please try again.'));
   };
 
   const onSubmit = async (data: BookingFormData) => {
@@ -72,6 +123,10 @@ const BookingPage: React.FC = () => {
       participants: participants
     };
 
+    // Add payment method information
+    formData.paymentMethod = paymentMethod;
+    formData.depositAmount = deposit;
+    
     // Validate form data
     const validationErrors = bookingService.validateBookingForm(formData);
     if (validationErrors.length > 0) {
@@ -356,58 +411,71 @@ const BookingPage: React.FC = () => {
                 {/* Step 3: Payment */}
                 {bookingStep === 3 && (
                   <div className="space-y-8">
-                    <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('booking.securePayment')}</h2>
+                    <div className="flex items-center space-x-3 mb-6">
+                      <Lock className="h-6 w-6 text-primary-600" />
+                      <h2 className="text-2xl font-bold text-gray-900">{t('booking.securePayment')}</h2>
+                    </div>
                     
-                    <div className="bg-blue-50 p-6 rounded-lg">
-                      <div className="flex items-start space-x-3">
-                        <Shield className="h-6 w-6 text-blue-600 flex-shrink-0 mt-1" />
-                        <div>
-                          <h3 className="font-semibold text-blue-900 mb-2">{t('booking.secureProcessing')}</h3>
-                          <p className="text-blue-800 text-sm">
-                            {t('booking.secureProcessingDescription')}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+                    <PaymentMethodSelector 
+                      onSelect={setPaymentMethod}
+                      selectedMethod={paymentMethod}
+                    />
 
-                    <div className="space-y-6">
-                      <div>
-                        <label className="block text-sm font-semibold text-gray-900 mb-2">{t('booking.cardNumber')}</label>
-                        <input
-                          type="text"
-                          placeholder="1234 5678 9012 3456"
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                        />
-                      </div>
-                      
-                      <div className="grid grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-sm font-semibold text-gray-900 mb-2">{t('booking.expiryDate')}</label>
-                          <input
-                            type="text"
-                            placeholder="MM/YY"
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    {paymentMethod === 'card' && (
+                      <StripeProvider>
+                        {clientSecret ? (
+                          <CheckoutForm
+                            clientSecret={clientSecret}
+                            amount={totalPrice}
+                            onSuccess={handlePaymentSuccess}
+                            onError={handlePaymentError}
                           />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-semibold text-gray-900 mb-2">{t('booking.cvc')}</label>
-                          <input
-                            type="text"
-                            placeholder="123"
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                          />
+                        ) : (
+                          <div className="flex justify-center items-center py-8">
+                            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600"></div>
+                            <span className="ml-3 text-gray-600">{t('payment.initializing', 'Initializing payment...')}</span>
+                          </div>
+                        )}
+                      </StripeProvider>
+                    )}
+                    
+                    {paymentMethod === 'deposit' && (
+                      <div className="bg-yellow-50 p-6 rounded-lg">
+                        <div className="flex items-start space-x-3">
+                          <AlertCircle className="h-6 w-6 text-yellow-600 flex-shrink-0 mt-1" />
+                          <div>
+                            <h3 className="font-semibold text-yellow-900 mb-2">{t('payment.depositInfo', 'Deposit Payment')}</h3>
+                            <p className="text-yellow-800 text-sm">
+                              {t('payment.depositDesc', 'You will pay a deposit of {{amount}} now and the remaining {{remaining}} on the day of your experience.', {
+                                amount: `€${deposit}`,
+                                remaining: `€${totalPrice - deposit}`
+                              })}
+                            </p>
+                            <button
+                              type="button"
+                              onClick={() => setPaymentSucceeded(true)}
+                              className="mt-4 bg-yellow-600 text-white px-4 py-2 rounded-lg hover:bg-yellow-700 transition-colors duration-300"
+                            >
+                              {t('payment.confirmDeposit', 'Confirm Deposit Payment')}
+                            </button>
+                          </div>
                         </div>
                       </div>
-
-                      <div>
-                        <label className="block text-sm font-semibold text-gray-900 mb-2">{t('booking.cardholderName')}</label>
-                        <input
-                          type="text"
-                          placeholder="John Doe"
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                        />
+                    )}
+                    
+                    {paymentMethod === 'wallet' && (
+                      <div className="bg-blue-50 p-6 rounded-lg">
+                        <div className="flex items-start space-x-3">
+                          <Wallet className="h-6 w-6 text-blue-600 flex-shrink-0 mt-1" />
+                          <div>
+                            <h3 className="font-semibold text-blue-900 mb-2">{t('payment.walletInfo', 'Digital Wallet')}</h3>
+                            <p className="text-blue-800 text-sm">
+                              {t('payment.walletDesc', 'Digital wallet payment will be available soon. Please select another payment method.')}
+                            </p>
+                          </div>
+                        </div>
                       </div>
-                    </div>
+                    )}
 
                     <div className="bg-green-50 p-6 rounded-lg">
                       <div className="flex items-start space-x-3">
@@ -458,7 +526,7 @@ const BookingPage: React.FC = () => {
                   ) : (
                     <button
                       type="submit"
-                      disabled={isSubmitting}
+                      disabled={isSubmitting || (bookingStep === 3 && !isStepValid())}
                       className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2"
                     >
                       {isSubmitting ? (
@@ -506,11 +574,13 @@ const BookingPage: React.FC = () => {
                 <div className="border-t border-gray-200 pt-4 mb-6">
                   <div className="flex justify-between items-center text-lg font-bold">
                     <span>{t('booking.total')}:</span>
-                    <span className="text-primary-600">€{totalPrice}</span>
+                    <span className="text-primary-600">€{paymentMethod === 'deposit' ? deposit : totalPrice}</span>
                   </div>
-                  <p className="text-sm text-gray-600 mt-2">
-                    {t('booking.deposit', { deposit: deposit, remaining: totalPrice - deposit })}
-                  </p>
+                  {paymentMethod === 'deposit' && (
+                    <p className="text-sm text-gray-600 mt-2">
+                      {t('booking.deposit', { deposit: deposit, remaining: totalPrice - deposit })}
+                    </p>
+                  )}
                 </div>
 
                 <div className="space-y-4 text-sm text-gray-600">
@@ -557,43 +627,4 @@ const BookingPage: React.FC = () => {
                   </a>
                   <a
                     href="mailto:info@gardaracing.com"
-                    className="flex items-center space-x-3 text-primary-600 hover:text-primary-700 transition-colors duration-300"
-                  >
-                    <Mail className="h-4 w-4" />
-                    <span>info@gardaracing.com</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
-
-        {/* Policies Section */}
-        <div className="max-w-4xl mx-auto mt-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('booking.cancellationPolicy')}</h3>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• {t('booking.freeCancellation48h')}</li>
-                <li>• {t('booking.refund50percent')}</li>
-                <li>• {t('booking.noRefund24h')}</li>
-                <li>• {t('booking.weatherCancellation')}</li>
-              </ul>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('booking.whatToBring')}</h3>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• {t('booking.comfortableClothes')}</li>
-                <li>• {t('booking.sunscreenHat')}</li>
-                <li>• {t('booking.nonSlipShoes')}</li>
-                <li>• {t('booking.cameraWaterproof')}</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default BookingPage;
+                    className="flex items-center space-x-3 text-primary-

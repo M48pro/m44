@@ -1,6 +1,7 @@
 import { supabase, type Booking, type Client, type BookingWithClient } from './supabase';
 import { crmService, type CRMClientData, type CRMBookingData } from './crm';
 import toast from 'react-hot-toast';
+import { stripeService } from './stripe';
 
 export interface BookingFormData {
   firstName: string;
@@ -13,6 +14,8 @@ export interface BookingFormData {
   specialRequests?: string;
   agreeTerms: boolean;
   agreeMarketing: boolean;
+  paymentMethod?: string;
+  depositAmount?: number;
 }
 
 export const bookingService = {
@@ -20,6 +23,11 @@ export const bookingService = {
     try {
       console.log('Creating booking with data:', formData);
       const totalAmount = formData.participants * 199;
+      
+      // Determine payment amount based on payment method
+      const paymentAmount = formData.paymentMethod === 'deposit' 
+        ? formData.depositAmount || Math.round(totalAmount * 0.3)
+        : totalAmount;
       
       // Step 1: Prepare client data for CRM
       const clientData: CRMClientData = {
@@ -104,6 +112,14 @@ export const bookingService = {
         
         toast.success('Booking created successfully! Check your email for confirmation.');
         return basicBooking;
+      }
+
+      // Step 5.5: Process payment if needed
+      if (formData.paymentMethod === 'card' && completeBooking) {
+        // Payment was already processed via Stripe Elements
+        // Update payment status
+        await this.updateBookingStatus(completeBooking.id, 'confirmed');
+        await this.updatePaymentStatus(completeBooking.id, 'paid');
       }
       
       toast.success('Booking created successfully! Check your email for confirmation.');
@@ -197,6 +213,25 @@ export const bookingService = {
     }
   },
 
+  async updatePaymentStatus(id: string, status: 'pending' | 'paid' | 'failed'): Promise<boolean> {
+    try {
+      const { error } = await supabase
+        .from('bookings')
+        .update({ payment_status: status, updated_at: new Date().toISOString() })
+        .eq('id', id);
+
+      if (error) {
+        console.error('Error updating payment status:', error);
+        return false;
+      }
+
+      return true;
+    } catch (error) {
+      console.error('Error in updatePaymentStatus:', error);
+      return false;
+    }
+  },
+
   validateBookingForm(formData: BookingFormData): string[] {
     const errors: string[] = [];
 
@@ -220,6 +255,11 @@ export const bookingService = {
     // Phone validation - теперь проверяем только наличие номера, так как валидация происходит в компоненте PhoneInput
     if (!formData.phone) {
       errors.push('Phone number is required');
+    }
+    
+    // Payment method validation
+    if (formData.paymentMethod === 'card' && !formData.paymentSucceeded) {
+      errors.push('Payment must be completed');
     }
 
     // Date validation (must be in the future)
