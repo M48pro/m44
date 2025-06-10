@@ -113,7 +113,6 @@ export interface SyncLog {
   sync_status?: 'success' | 'failed' | 'pending';
   error_message?: string;
   synced_at?: string;
-}
   participants: number;
   total_amount: number;
   status: 'pending' | 'confirmed' | 'cancelled' | 'completed';
