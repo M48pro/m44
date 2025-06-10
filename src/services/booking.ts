@@ -134,13 +134,13 @@ export const bookingService = {
             .update(updatedData)
             .eq('id', existingClient.id)
             .select()
-            .single();
+            .maybeSingle(); // Use maybeSingle instead of single
 
           if (updateError) {
             console.error('Error updating client:', updateError);
             return existingClient; // Return existing client even if update fails
           }
-          return updated;
+          return updated || existingClient; // Return updated client or fallback to existing
         }
 
         return existingClient;
@@ -186,7 +186,7 @@ export const bookingService = {
         .select('id, name')
         .eq('status', 'available')
         .limit(1)
-        .single();
+        .maybeSingle(); // Use maybeSingle instead of single
 
       if (error) {
         console.log('No available yacht found or error:', error);
@@ -227,7 +227,7 @@ export const bookingService = {
         .from('clients')
         .select('total_bookings, total_spent')
         .eq('id', clientId)
-        .single();
+        .maybeSingle(); // Use maybeSingle instead of single
 
       if (fetchError || !client) {
         console.error('Error fetching client for stats update:', fetchError);
@@ -263,7 +263,7 @@ export const bookingService = {
           yacht:yachts(id, name)
         `)
         .eq('id', id)
-        .single();
+        .maybeSingle(); // Use maybeSingle instead of single
 
       if (error) {
         console.error('Error fetching booking:', error);
