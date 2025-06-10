@@ -39,14 +39,16 @@ export const crmService = {
         .from('clients')
         .select('*')
         .eq('email', clientData.email)
-        .maybeSingle();
+        .limit(1);
 
       if (findError) {
         console.error('Error finding client in CRM:', findError);
         throw findError;
       }
 
-      if (existingClients) {
+      const existingClient = existingClients && existingClients.length > 0 ? existingClients[0] : null;
+
+      if (existingClient) {
         // Update existing client
         const { data: updatedClient, error: updateError } = await supabase
           .from('clients')
@@ -57,7 +59,7 @@ export const crmService = {
             lead_source: clientData.leadSource || 'website',
             updated_at: new Date().toISOString()
           })
-          .eq('id', existingClients.id)
+          .eq('id', existingClient.id)
           .select()
           .single();
 

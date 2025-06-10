@@ -24,7 +24,7 @@ export const clientPortalService = {
         .select('*')
         .eq('portal_token', token)
         .eq('portal_access', true)
-        .single();
+        .maybeSingle();
 
       if (error) {
         console.error('Error authenticating client with token:', error);
